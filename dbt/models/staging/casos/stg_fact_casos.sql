@@ -14,4 +14,4 @@ select
     NUM_UCI,
     NUM_DEF,
     ID_PROVINCIA||SEXO||GRUPO_EDAD||ID_FECHA AS ID_CASOS
-from {{ source('casos', 'cases') }} 
+from {{ source('casos', 'cases') }}
