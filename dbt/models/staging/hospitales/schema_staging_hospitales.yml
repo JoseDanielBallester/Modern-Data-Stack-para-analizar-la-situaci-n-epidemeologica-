@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_fact_hospitales
+    description: almacen provisional para nuestros datos de los casos
+    columns:
+      - name: ID_HOSPITALES
+        descripcion: clave primaria para hospitales
+        tests:
+          - unique
+          - not_null
