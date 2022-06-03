@@ -7,3 +7,5 @@ sources:
     schema: covid
     tables:
       - name: population
+        tables:
+      - name: actual_population

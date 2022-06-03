@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_fact_residencias
+    description: almacen provisional para nuestros datos de los casos
+    columns:
+      - name: ID_RESIDENCIAS
+        descripcion: clave primaria para residencias
+        tests:
+          - unique
+          - not_null
