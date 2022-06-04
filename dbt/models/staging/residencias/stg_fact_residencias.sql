@@ -6,9 +6,7 @@
 
 select
     Fecha,
-    Semana,
     CCAA,
-    Nun_sem,
     NumCentros,
     NumCasos,
     NumResidentes,
@@ -21,5 +19,5 @@ select
     NumResidentes_COVID_R1,
     NumPlantilla_COVID_R1,
     Fallecidos_Covid_R1,
-    CCAA||Nun_sem AS ID_RESIDENCIAS
+    CCAA||FECHA AS ID_RESIDENCIAS
 from {{ source('residencias', 'residences') }}

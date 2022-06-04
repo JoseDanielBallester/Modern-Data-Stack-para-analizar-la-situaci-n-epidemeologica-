@@ -10,6 +10,6 @@ select
     "Españoles/Extranjeros" AS PROCEDENCIA,
     Sexo AS SEXO,
     "Año" AS FECHA,
-    Total AS TOTAL,
+    REPLACE(Total,'.')::integer AS TOTAL,
     FECHA||PROVINCIAS||EDAD||PROCEDENCIA||SEXO||FECHA AS ID_POBLACION
 from {{ source('master', 'population') }}
