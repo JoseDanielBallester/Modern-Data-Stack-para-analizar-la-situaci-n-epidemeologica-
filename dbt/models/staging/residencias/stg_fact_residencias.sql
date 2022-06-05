@@ -6,7 +6,7 @@
 
 select
     Fecha,
-    CCAA,
+    UPPER(CCAA) AS CCAA,
     NumCentros,
     NumCasos,
     NumResidentes,
