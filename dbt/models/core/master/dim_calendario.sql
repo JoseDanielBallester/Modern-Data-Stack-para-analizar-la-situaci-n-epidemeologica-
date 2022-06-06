@@ -1,6 +1,6 @@
 {{
     config(
-        unique_key="DATE"
+        unique_key="ID_FECHA"
     )
 }}
 
@@ -60,6 +60,9 @@ SELECT
         when MONTH(ID_FECHA)= 11 then 'NOVIEMBRE'
         else 'DICIEMBRE'
     end AS MES,
+    MONTH(ID_FECHA) AS MES_NUMERICO,
+    MES||'-'||"AÑO" AS "MES_AÑO",
+    MES_NUMERICO||'-'||"AÑO" AS "MES_AÑO_NUMERICO",
     case
         when dayofweekiso(ID_FECHA)= 1 then 'LUNES'
         when dayofweekiso(ID_FECHA)= 2 then 'MARTES'
@@ -197,13 +200,14 @@ SELECT
         )
     end::varchar AS SEMANA_MES,
     DAY(ID_FECHA) AS DIA,
-    QUARTER(ID_FECHA) AS TRIMESTRE,
+    'T'||QUARTER(ID_FECHA) AS TRIMESTRE,
+    TRIMESTRE||'-'||"AÑO" AS "TRIMESTRE_AÑO",
     weekiso(ID_FECHA) AS SEMANA
 FROM(
     SELECT
         ROW_NUMBER() OVER (ORDER BY 1) - 1 
     FROM TABLE (
-        generator(rowcount=>{{ 1000 }}))
+        generator(rowcount=>{{ dias_diferencia }}))
     ) calendario(dias_diferencia)
 
 limit 1500

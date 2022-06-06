@@ -6,7 +6,7 @@
 
 with poblacion_actual_aux as( 
     select
-        SEXO,
+        LEFT(SEXO,1) AS SEXO,
         LEFT(PROVINCIAS,2)::integer AS ID_PROVINCIA,
         LEFT(COMUNIDADES,2)::integer AS ID_COMUNIDAD,
         case
