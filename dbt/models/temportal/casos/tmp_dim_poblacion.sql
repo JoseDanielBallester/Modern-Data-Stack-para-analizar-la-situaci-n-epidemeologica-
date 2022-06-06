@@ -4,6 +4,27 @@
     )
 }}
 
+-- depends_on: {{ ref('dim_calendario') }}
+
+with fechas as(
+    SELECT
+        0 as min_fecha,
+        1 as max_fecha
+)
+
+{%- call statement('fechas', fetch_result=True) -%}
+
+    SELECT 
+        MIN("AÑO"),
+        MAX("AÑO")
+    FROM {{ ref('dim_calendario')}}  
+
+{%- endcall -%}
+
+{%- set min_fecha = load_result('fechas')['data'][0][0] -%}
+
+{%- set max_fecha = load_result('fechas')['data'][0][1] -%}
+
 select
     LEFT(PROVINCIAS,2)::integer AS ID_PROVINCIA,
     case
@@ -20,4 +41,4 @@ select
 from {{ ref('stg_dim_poblacion')}}
 where provincias <> 'TOTAL ESPAÃA' and EDAD <> 'TOTAL EDADES'
 and procedencia ='TOTAL' and SEXO <> 'Ambos sexos'
-and FECHA>2018 GROUP BY GRUPO_EDAD, ID_PROVINCIA, SEXO, FECHA
+and FECHA>={{ min_fecha }} and FECHA<={{ max_fecha }}GROUP BY GRUPO_EDAD, ID_PROVINCIA, SEXO, FECHA
