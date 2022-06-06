@@ -6,7 +6,7 @@
 
 with provincias_aux as(
     select distinct
-        case
+    case
         when CCAA='ISLAS BALEARES' then 'BALEARS, ILLES'
         when CCAA='ASTURIAS' then  'ASTURIAS, PRINCIPADO DE'
         when CCAA= 'ISLAS CANARIAS'then 'CANARIAS'
