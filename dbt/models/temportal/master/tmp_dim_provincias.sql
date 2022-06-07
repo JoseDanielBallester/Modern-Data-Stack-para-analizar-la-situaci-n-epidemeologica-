@@ -16,7 +16,7 @@ with comunidades_aux as(
 select 
     ID::integer AS ID_PROVINCIA,
     CODIGO,
-    comunidades_aux.PROVINCIA,
+    SPLIT_PART(SPLIT_PART(comunidades_aux.PROVINCIA,'/',1),',',1) AS PROVINCIA,
     comunidades_aux.CCAA_ID AS ID_COMUNIDAD,
     comunidades_aux.CCAA AS CCAA
 from {{ ref('stg_dim_provincias')}}

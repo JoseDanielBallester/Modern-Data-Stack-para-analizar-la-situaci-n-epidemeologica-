@@ -7,7 +7,7 @@
 with poblacion_actual_aux as( 
     select
         LEFT(SEXO,1) AS SEXO,
-        LEFT(PROVINCIAS,2)::integer AS ID_PROVINCIA,
+        LEFT(PROVINCIAS,2)::integer AS ID_PROVINCIA_AUX,
         LEFT(COMUNIDADES,2)::integer AS ID_COMUNIDAD,
         case
             when SPLIT_PART(EDAD,' ',1)= '0-4' or SPLIT_PART(EDAD,' ',1)='5-9' then '0-9'
@@ -20,7 +20,7 @@ with poblacion_actual_aux as(
         SUM(TOTAL) AS TOTAL
     from {{ ref('stg_dim_poblacion_actual')}}
     WHERE SEXO <> 'Ambos sexos' and ID_COMUNIDAD is not null and EDAD <> 'Total'
-    GROUP BY GRUPO_EDAD, ID_PROVINCIA, ID_COMUNIDAD, SEXO, FECHA
+    GROUP BY GRUPO_EDAD, ID_PROVINCIA_AUX, ID_COMUNIDAD, SEXO, FECHA
 )
 , provincias_aux as(
     select
@@ -31,16 +31,18 @@ with poblacion_actual_aux as(
         SELECT 
             ID_COMUNIDAD
         FROM poblacion_actual_aux
-        WHERE ID_PROVINCIA IS null
+        WHERE ID_PROVINCIA_AUX IS null
     )
 )
 
 SELECT
-    iff(ID_PROVINCIA is null, provincias_aux.ID_PROVINCIA, ID_PROVINCIA) AS ID_PROVINCIA,
+    iff(ID_PROVINCIA_AUX is null, provincias_aux.ID_PROVINCIA, ID_PROVINCIA_AUX) AS ID_PROVINCIA,
+    ID_COMUNIDAD,
     GRUPO_EDAD,
     SEXO,
     FECHA,
     TOTAL,
-    ID_PROVINCIA||GRUPO_EDAD||SEXO||FECHA AS ID_POBLACION
+    iff(ID_PROVINCIA_AUX is null, provincias_aux.ID_PROVINCIA, ID_PROVINCIA_AUX)||GRUPO_EDAD||SEXO||FECHA AS ID_POBLACION
 FROM poblacion_actual_aux
 LEFT JOIN provincias_aux USING(ID_COMUNIDAD)
+WHERE ID_PROVINCIA IS NULL

@@ -20,4 +20,4 @@ SELECT
     FECHA,
     TOTAL,
     ID_POBLACION
-FROM {{ ref('tmp_dim_poblacion')}}
+FROM {{ ref('tmp_dim_poblacion_actual')}}
