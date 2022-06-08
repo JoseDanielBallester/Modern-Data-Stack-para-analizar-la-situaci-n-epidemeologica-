@@ -21,4 +21,3 @@ select
     ID_PROVINCIA||GRUPO_EDAD||SEXO||ID_FECHA AS ID_CASOS
 from {{ ref('stg_fact_casos')}}
 left join provincias_aux using(ID_PROVINCIA)
-WHERE (NUM_CASOS<>0 OR NUM_HOSP<>0 OR NUM_UCI<>0 OR NUM_DEF<>0)

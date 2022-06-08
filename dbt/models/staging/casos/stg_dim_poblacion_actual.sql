@@ -4,7 +4,7 @@
     )
 }}
 
-select
+select distinct
     Sexo AS SEXO,
     Comunidades AS COMUNIDADES,
     Provincias AS PROVINCIAS,
