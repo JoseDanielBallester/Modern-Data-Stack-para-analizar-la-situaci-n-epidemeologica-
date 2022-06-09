@@ -4,7 +4,7 @@
     )
 }}
 
-select
+select distinct
     PROVINCIA_ISO AS ID_PROVINCIA,
     SEXO,
     GRUPO_EDAD,

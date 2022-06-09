@@ -4,7 +4,7 @@
     )
 }}
 
-select
+select distinct
     Fecha AS ID_FECHA,
     Unidad,
     COD_CCAA,

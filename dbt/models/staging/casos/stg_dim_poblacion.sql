@@ -4,7 +4,7 @@
     )
 }}
 
-select
+select distinct
     Provincias AS PROVINCIAS,
     "Edad (grupos quinquenales)" AS EDAD,
     "Españoles/Extranjeros" AS PROCEDENCIA,

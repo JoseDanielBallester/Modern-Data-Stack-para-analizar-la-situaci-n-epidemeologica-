@@ -4,7 +4,7 @@
     )
 }}
 
-select
+select distinct
     Fecha,
     UPPER(CCAA) AS CCAA,
     NumCentros,
