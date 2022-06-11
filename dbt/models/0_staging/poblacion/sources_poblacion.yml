@@ -1,13 +1,10 @@
 version: 2
 
 sources:
-  - name: casos
+  - name: poblacion
     description: Clon de la base de datos de Snowflake
     database: raw
     schema: covid
     tables:
-      - name: cases
       - name: population
       - name: actual_population
-
-

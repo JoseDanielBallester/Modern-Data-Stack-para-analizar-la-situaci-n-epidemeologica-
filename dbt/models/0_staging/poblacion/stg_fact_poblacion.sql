@@ -12,4 +12,4 @@ select distinct
     "Año" AS FECHA,
     REPLACE(Total,'.')::integer AS TOTAL,
     FECHA||PROVINCIAS||EDAD||PROCEDENCIA||SEXO||FECHA AS ID_POBLACION
-from {{ source('casos', 'population') }}
+from {{ source('poblacion', 'population') }}

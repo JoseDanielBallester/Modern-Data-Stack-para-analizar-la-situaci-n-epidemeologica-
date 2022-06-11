@@ -6,18 +6,19 @@
 
 SELECT
     ID_PROVINCIA::integer AS ID_PROVINCIA,
-    GRUPO_EDAD::varchar AS GRUPO_EDAD,
-    SEXO::varchar AS SEXO,
     FECHA::integer AS FECHA,
     TOTAL::integer AS TOTAL,
+    ID_DEMOGRAFIA::varchar AS ID_DEMOGRAFIA,
     ID_POBLACION::varchar AS ID_POBLACION
-FROM {{ ref('tmp_dim_poblacion')}}
+    
+FROM {{ ref('tmp_fact_poblacion')}}
 UNION
 SELECT
     ID_PROVINCIA::integer AS ID_PROVINCIA,
-    GRUPO_EDAD::varchar AS GRUPO_EDAD,
-    SEXO::varchar AS SEXO,
     FECHA::integer AS FECHA,
     TOTAL::integer AS TOTAL,
+    ID_DEMOGRAFIA::varchar AS ID_DEMOGRAFIA,
     ID_POBLACION::varchar AS ID_POBLACION
-FROM {{ ref('tmp_dim_poblacion_actual')}}
+FROM {{ ref('tmp_fact_poblacion_actual')}}
+
+LIMIT 5000

@@ -44,8 +44,8 @@ with fechas as(
 {%- set dias_diferencia = load_result('fechas')['data'][0][2] -%}
 
 SELECT
-    DATEADD(DAY,calendario.dias_diferencia,'{{ min_fecha }}'::DATE) as ID_FECHA,
-    YEAR(ID_FECHA)::integer AS "AÑO",
+    DATEADD(DAY,calendario.dias_diferencia,'{{ min_fecha }}') as ID_FECHA,
+    YEAR(ID_FECHA) AS "AÑO",
     case
         when MONTH(ID_FECHA)= 1 then 'ENERO'
         when MONTH(ID_FECHA)= 2 then 'FEBRERO'
@@ -59,10 +59,10 @@ SELECT
         when MONTH(ID_FECHA)= 10 then 'OCTUBRE'
         when MONTH(ID_FECHA)= 11 then 'NOVIEMBRE'
         else 'DICIEMBRE'
-    end::varchar AS MES,
-    MONTH(ID_FECHA)::integer AS MES_NUMERICO,
-    "AÑO"||'-'||MES::varchar AS "MES_AÑO",
-    "AÑO"||'-'||MES_NUMERICO::varchar AS "MES_AÑO_NUMERICO",
+    end AS MES,
+    MONTH(ID_FECHA) AS MES_NUMERICO,
+    "AÑO"||'-'||MES AS "MES_AÑO",
+    "AÑO"||'-'||MES_NUMERICO AS "MES_AÑO_NUMERICO",
     case
         when dayofweekiso(ID_FECHA)= 1 then 'LUNES'
         when dayofweekiso(ID_FECHA)= 2 then 'MARTES'
@@ -71,7 +71,7 @@ SELECT
         when dayofweekiso(ID_FECHA)= 5 then 'VIERNES'
         when dayofweekiso(ID_FECHA)= 6 then 'SABADO'
         else 'DOMINGO'
-    end::varchar AS DIA_SEMANA,
+    end AS DIA_SEMANA,
     case
         when iff(iff(dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7)>0,
                 dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7),
@@ -198,11 +198,11 @@ SELECT
                     else 'DICIEMBRE'
                 end
         )
-    end::varchar AS SEMANA_MES,
-    DAY(ID_FECHA)::integer AS DIA,
-    'T'||QUARTER(ID_FECHA)::varchar AS TRIMESTRE,
-    "AÑO"||'-'||TRIMESTRE::varchar AS "TRIMESTRE_AÑO",
-    weekiso(ID_FECHA)::integer AS SEMANA
+    end AS SEMANA_MES,
+    DAY(ID_FECHA) AS DIA,
+    'T'||QUARTER(ID_FECHA) AS TRIMESTRE,
+    "AÑO"||'-'||TRIMESTRE AS "TRIMESTRE_AÑO",
+    weekiso(ID_FECHA) AS SEMANA
 FROM(
     SELECT
         ROW_NUMBER() OVER (ORDER BY 1) - 1 

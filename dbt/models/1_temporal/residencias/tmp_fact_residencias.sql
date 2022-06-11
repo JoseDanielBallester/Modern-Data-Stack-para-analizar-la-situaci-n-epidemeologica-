@@ -18,12 +18,14 @@ with provincias_aux as(
         when CCAA='MURCIA' then 'MURCIA, REGIÓN DE'
         else CCAA
     end as CCAA,
-        ID_COMUNIDAD
+        ID_COMUNIDAD,
+        CAPITAL_CCAA_ID
     FROM {{ ref('tmp_dim_provincias')}}
 )
 select
     DATE(TO_VARCHAR(DATE(SPLIT_PART(SPLIT_PART(Fecha,'al',1),' ',2),'DD/MM/YY'),'YYYY-MM-DD')) as ID_FECHA,
     provincias_aux.ID_COMUNIDAD AS ID_COMUNIDAD,
+    provincias_aux.CAPITAL_CCAA_ID AS CAPITAL_CCAA_ID,
     NumCentros_R1,
     CentrosCasos_R1,
     NumResidentes_R1,
