@@ -62,7 +62,7 @@ SELECT
     end AS MES,
     MONTH(ID_FECHA) AS MES_NUMERICO,
     "AÑO"||'-'||MES AS "MES_AÑO",
-    "AÑO"||'-'||MES_NUMERICO AS "MES_AÑO_NUMERICO",
+    "AÑO"*100+MES_NUMERICO AS "MES_AÑO_NUMERICO",
     case
         when dayofweekiso(ID_FECHA)= 1 then 'LUNES'
         when dayofweekiso(ID_FECHA)= 2 then 'MARTES'
