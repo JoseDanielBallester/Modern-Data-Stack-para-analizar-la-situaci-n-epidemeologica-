@@ -6,9 +6,9 @@
 
 select distinct
     Sexo AS SEXO,
-    Comunidades AS COMUNIDADES,
+    COMUNIDADES_Y_CIUDADES_AUTONOMAS AS COMUNIDADES,
     Provincias AS PROVINCIAS,
-    "Edad (hasta 100 y más)" AS EDAD,
+    EDAD_HASTA_100_Y_MAS_ AS EDAD,
     REPLACE(Total,'.')::integer AS TOTAL,
     iff(COMUNIDADES is null,'', COMUNIDADES)||iff(PROVINCIAS is null,'', PROVINCIAS)||EDAD||SEXO AS ID_POBLACION_ACTUAL
 from {{ source('poblacion', 'actual_population') }}

@@ -6,10 +6,10 @@
 
 select distinct
     Provincias AS PROVINCIAS,
-    "Edad (grupos quinquenales)" AS EDAD,
-    "Españoles/Extranjeros" AS PROCEDENCIA,
+    EDAD_GRUPOS_QUINQUENALES_ AS EDAD,
+    ESPANOLES_EXTRANJEROS AS PROCEDENCIA,
     Sexo AS SEXO,
-    "Año" AS FECHA,
+    ANO AS FECHA,
     REPLACE(Total,'.')::integer AS TOTAL,
     FECHA||PROVINCIAS||EDAD||PROCEDENCIA||SEXO||FECHA AS ID_POBLACION
 from {{ source('poblacion', 'population') }}

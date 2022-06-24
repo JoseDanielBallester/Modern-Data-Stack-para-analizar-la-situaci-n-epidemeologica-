@@ -38,6 +38,6 @@ select
     end AS ID_DEMOGRAFIA,
     ID_PROVINCIA||ID_DEMOGRAFIA||FECHA AS ID_POBLACION
 from {{ ref('stg_fact_poblacion')}}
-where provincias <> 'TOTAL ESPAÃA' and EDAD <> 'TOTAL EDADES'
+where provincias <> 'TOTAL ESPAÑA' and EDAD <> 'TOTAL EDADES'
 and procedencia ='TOTAL' and SEXO <> 'Ambos sexos'
 and FECHA>={{ min_fecha }} and FECHA<={{ max_fecha }}GROUP BY ID_DEMOGRAFIA, ID_PROVINCIA, FECHA
