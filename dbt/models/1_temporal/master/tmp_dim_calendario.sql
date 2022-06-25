@@ -100,7 +100,7 @@ SELECT
                         when MONTH(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))= 10 then 'OCTUBRE'
                         when MONTH(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))= 11 then 'NOVIEMBRE'
                         else 'DICIEMBRE'
-                    end,
+                    end || ' DE '|| YEAR(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA)),
                 TO_VARCHAR(TRUNCATE((DAY(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-2+iff(dayofweekiso(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-((DAY(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-1)%7)>0,
                     dayofweekiso(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-((DAY(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-1)%7),
                     (dayofweekiso(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-((DAY(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))-1)%7))+7))/7+1))||'ª SEMANA DE '|| case
@@ -116,7 +116,7 @@ SELECT
                         when MONTH(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))= 10 then 'OCTUBRE'
                         when MONTH(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA))= 11 then 'NOVIEMBRE'
                         else 'DICIEMBRE'
-                    end)
+                    end || ' DE '|| YEAR(DATEADD(Day ,-DAY(ID_FECHA), ID_FECHA)))
         when (iff(iff(dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7)>0,
                 dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7),
                 (dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7))+7 )>4,
@@ -145,7 +145,7 @@ SELECT
                         when MONTH(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))= 10 then 'OCTUBRE'
                         when MONTH(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))= 11 then 'NOVIEMBRE'
                         else 'DICIEMBRE'
-                    end,
+                    end  || ' DE '|| YEAR(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA)))),
                 TO_VARCHAR(TRUNCATE((DAY(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-2+iff(dayofweekiso(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-((DAY(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-1)%7)>0,
                     dayofweekiso(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-((DAY(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-1)%7),
                     (dayofweekiso(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-((DAY(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))-1)%7))+7))/7+1))||'ª SEMANA DE '|| case
@@ -161,7 +161,7 @@ SELECT
                         when MONTH(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))= 10 then 'OCTUBRE'
                         when MONTH(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA))))= 11 then 'NOVIEMBRE'
                         else 'DICIEMBRE'
-                    end)
+                    end || ' DE '|| YEAR(DATEADD(Day,1,DATEADD(Day ,-DAY(DATEADD(week,3,ID_FECHA)), DATEADD(week,3,ID_FECHA)))))
         else iff(iff(dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7)>0,
                 dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7),
                 (dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7))+7 )>4,
@@ -180,7 +180,7 @@ SELECT
                     when MONTH(ID_FECHA)= 10 then 'OCTUBRE'
                     when MONTH(ID_FECHA)= 11 then 'NOVIEMBRE'
                     else 'DICIEMBRE'
-                end,
+                end || ' DE '|| YEAR(ID_FECHA),
             TO_VARCHAR(TRUNCATE((DAY(ID_FECHA)-2+iff(dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7)>0,
                 dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7),
                 (dayofweekiso(ID_FECHA)-((DAY(ID_FECHA)-1)%7))+7))/7+1))||'ª SEMANA DE '|| case
@@ -196,13 +196,15 @@ SELECT
                     when MONTH(ID_FECHA)= 10 then 'OCTUBRE'
                     when MONTH(ID_FECHA)= 11 then 'NOVIEMBRE'
                     else 'DICIEMBRE'
-                end
+                end || ' DE '|| YEAR(ID_FECHA)
         )
-    end AS SEMANA_MES,
+    end AS "SEMANA_MES_AÑO",
     DAY(ID_FECHA) AS DIA,
     'T'||QUARTER(ID_FECHA) AS TRIMESTRE,
     "AÑO"||'-'||TRIMESTRE AS "TRIMESTRE_AÑO",
-    weekiso(ID_FECHA) AS SEMANA
+    weekiso(ID_FECHA) AS SEMANA,
+    RIGHT("SEMANA_MES_AÑO",4)*100+SEMANA AS "SEMANA_AÑO"
+
 FROM(
     SELECT
         ROW_NUMBER() OVER (ORDER BY 1) - 1 

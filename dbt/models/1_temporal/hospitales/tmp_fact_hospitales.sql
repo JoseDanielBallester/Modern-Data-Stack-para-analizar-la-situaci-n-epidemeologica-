@@ -15,5 +15,7 @@ select
     SUM(ALTAS_24H_COVID19) AS ALTAS_24H_COVID19,
     ID_PROVINCIA||ID_FECHA||Tipo AS ID_HOSPITALES
 from {{ ref('stg_fact_hospitales')}}
+where ID_FECHA is not null
 GROUP BY Tipo, ID_PROVINCIA, ID_FECHA
+
     
