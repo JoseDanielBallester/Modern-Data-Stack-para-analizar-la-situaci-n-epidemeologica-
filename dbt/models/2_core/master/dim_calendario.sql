@@ -17,7 +17,8 @@ SELECT
     "TRIMESTRE_AÑO"::varchar AS "TRIMESTRE_AÑO",
     SEMANA::integer AS SEMANA,
     "SEMANA_MES_AÑO"::varchar AS "SEMANA_MES_AÑO",
-    "SEMANA_AÑO"::integer AS "SEMANA_AÑO"
+    "SEMANA_AÑO"::integer AS "SEMANA_AÑO",
+    MES_CONTENEDOR_SEMANAS::varchar AS MES_CONTENEDOR_SEMANAS
 
 FROM {{ ref('tmp_dim_calendario')}}
 limit 1500

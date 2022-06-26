@@ -44,7 +44,7 @@ with fechas as(
 {%- set dias_diferencia = load_result('fechas')['data'][0][2] -%}
 
 SELECT
-    DATEADD(DAY,calendario.dias_diferencia,'{{ min_fecha }}') as ID_FECHA,
+    DATEADD(DAY,calendario.dias_diferencia,'{{ min_fecha }}')::DATE as ID_FECHA,
     YEAR(ID_FECHA) AS "AÑO",
     case
         when MONTH(ID_FECHA)= 1 then 'ENERO'
@@ -203,8 +203,8 @@ SELECT
     'T'||QUARTER(ID_FECHA) AS TRIMESTRE,
     "AÑO"||'-'||TRIMESTRE AS "TRIMESTRE_AÑO",
     weekiso(ID_FECHA) AS SEMANA,
-    RIGHT("SEMANA_MES_AÑO",4)*100+SEMANA AS "SEMANA_AÑO"
-
+    RIGHT("SEMANA_MES_AÑO",4)*100+SEMANA AS "SEMANA_AÑO",
+    SPLIT_PART("SEMANA_MES_AÑO",'DE',2) AS MES_CONTENEDOR_SEMANAS
 FROM(
     SELECT
         ROW_NUMBER() OVER (ORDER BY 1) - 1 
