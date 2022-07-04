@@ -1,6 +1,4 @@
 # Modern Data Stack para analizar la situación epidemiológica
-
-# TFG
 Este repositorio abarca todo el proceso de desarrollo para la realización del Trabajo de Fin de Grado (TFG) del grado en Ingeniería Informática.
 
 ## Descripción del TFG
