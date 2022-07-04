@@ -5,11 +5,11 @@ Este repositorio abarca todo el proceso de desarrollo para la realización del T
 Se va a implementar un cuadro de mandos que permite la visualización de la situación general de Covid-19 en España. Para ello se ha seguido el proceso ETL de datos, y se han empleado principalmente herramientas como Microsoft Power BI, Snowflake, Fivetran, Amazon S3, Python y Google cloud.
 
 ## Autor: 
-- Jose Daniel Ballester Delgado
+- José Daniel Ballester Delgado
 
 ## Tutores:
 - José Ignacio Santos Martín
-- Manuel Galán Ordax
+- José Manuel Galán Ordax
 
 ## Página web
 El proyecto se encuentra desplegado en la siguiente página web: 
