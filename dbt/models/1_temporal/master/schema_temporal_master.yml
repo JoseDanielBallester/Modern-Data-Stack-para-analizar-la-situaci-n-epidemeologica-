@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: tmp_dim_demografia
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla demografía.
+    columns:
+      - name: ID_DEMOGRAFIA
+        description: clave primaria para demografía.
+        tests:
+          - unique
+          - not_null
+      - name: SEXO
+        description: sexo de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+      - name: GRUPO_EDAD
+        description: grupo de edad de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+      - name: GRUPO_EDAD_CODIGO
+        description: código del grupo de edad de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA_AUX
+        description: identificador demografía de contagio.
+        tests:
+          - not_null
+  - name: tmp_dim_provincias
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla provincias.
+    columns:
+      - name: ID_PROVINCIA
+        description: clave primaria para provincia.
+        tests:
+          - unique
+          - not_null
+      - name: CODIGO
+        description: código de identificación de las provincias.
+        tests:
+          - not_null
+      - name: PROVINCIA
+        description: nombre de las provincias.
+        tests:
+          - not_null
+      - name: ID_COMUNIDAD
+        description: identificador de las comunidades autónomas a las que pertenecen las provincias.
+        tests:
+          - not_null
+      - name: PROVINCIA_COMPLETA
+        description: provincia y comunidad autónoma.
+        tests:
+          - not_null
+      - name: CCAA
+        description: comunidad autónoma a la que pertenecen las provincias.
+          - not_null
+      - name: COMUNIDAD_AUTONOMA
+        description: comunidad autónoma a la que pertenecen las provincias.
+          - not_null
+      - name: CAPITAL_CCAA_ID
+        description: identificador de la capital de la comunidad autónoma a la que pertenecen las residencias.
+        tests:
+          - not_null
+    
+    
+      

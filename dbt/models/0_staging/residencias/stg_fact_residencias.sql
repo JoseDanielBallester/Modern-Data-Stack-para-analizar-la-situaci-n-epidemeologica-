@@ -1,11 +1,5 @@
-{{
-    config(
-        unique_key="ID_RESIDENCIAS"
-    )
-}}
-
 select distinct
-    Fecha,
+    DATE(TO_VARCHAR(DATE(SPLIT_PART(SPLIT_PART(Fecha,'al',1),' ',2),'DD/MM/YY'),'YYYY-MM-DD')) as ID_FECHA,
     UPPER(CCAA) AS CCAA,
     NUM_CENTROS AS NumCentros,
     CENTROS_CASOS AS NumCasos,

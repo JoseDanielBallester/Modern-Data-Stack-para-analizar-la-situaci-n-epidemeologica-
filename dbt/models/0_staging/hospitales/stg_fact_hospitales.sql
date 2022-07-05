@@ -1,9 +1,3 @@
-{{
-    config(
-        unique_key="ID_HOSPITALES"
-    )
-}}
-
 select distinct
     DATE(RIGHT(Fecha,4)||'-'||RIGHT(LEFT(Fecha,5),2)||'-'||LEFT(Fecha,2)) AS ID_FECHA,
     Unidad,

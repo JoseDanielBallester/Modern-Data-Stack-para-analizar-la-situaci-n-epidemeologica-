@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fact_casos
+    description: modelo final de la tabla casos preparado para cargar en powerBI.
+    columns:
+      - name: ID_PROVINCIA
+        description: identificador de provincia en la que se registran los casos de contagio.
+        tests:
+          - not_null
+      - name: ID_FECHA_NUMERICO
+        description: identificador fecha numérico en la que se registran los casos de contagio.
+        tests:
+          - not_null
+      - name: NUM_CASOS
+        description: número de casos de contagio registrados.
+        tests:
+          - not_null
+      - name: NUM_HOSP
+        description: número de hospitalizaciones por contagio.
+        tests:
+          - not_null
+      - name: NUM_UCI
+        description: número de hospitalizaciones UCI por contagio.
+        tests:
+          - not_null
+      - name: NUM_DEF
+        description: número de defunciones por contagio.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA
+        description: identificador demografía de contagio.
+        tests:
+          - not_null
+
+    
+      

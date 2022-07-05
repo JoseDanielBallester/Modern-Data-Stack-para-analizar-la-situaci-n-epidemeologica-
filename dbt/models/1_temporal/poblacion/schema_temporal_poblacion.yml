@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: tmp_fact_poblacion
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla población.
+    columns:
+      - name: ID_POBLACION
+        description: clave primaria para población.
+        tests:
+          - unique
+          - not_null
+      - name: ID_PROVINCIA
+        description: identificador de provincias.
+        tests:
+          - not_null
+      - name: FECHA
+        description: fecha de registro de la población.
+        tests:
+          - not_null
+      - name: TOTAL
+        description: total de la población.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA_AUX
+        description: identificador demografía auxiliar de contagio.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA
+        description: identificador demografía de contagio.
+        tests:
+          - not_null
+  - name: tmp_fact_poblacion_actual
+    description: poblacion actual
+    columns:
+      - name: ID_POBLACION
+        description: clave primaria para población actual.
+        tests:
+          - unique
+          - not_null
+      - name: ID_PROVINCIA
+        description: identificador de provincia de la población actual.
+      - name: FECHA
+        description: fecha de registro de la población actual.
+        tests:
+          - not_null
+      - name: TOTAL
+        description: número total de la población actual.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA_AUX
+        description: identificador demografía auxiliar de contagio.
+        tests:
+          - not_null
+      - name: ID_DEMOGRAFIA
+        description: identificador demografía de contagio.
+        tests:
+          - not_null

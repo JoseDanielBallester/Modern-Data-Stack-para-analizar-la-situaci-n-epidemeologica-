@@ -1,9 +1,3 @@
-{{
-    config(
-        unique_key="ID_RESIDENCIAS"
-    )
-}}
-
 with provincias_aux as(
     select distinct
     case
@@ -23,7 +17,7 @@ with provincias_aux as(
     FROM {{ ref('tmp_dim_provincias')}}
 )
 select
-    DATE(TO_VARCHAR(DATE(SPLIT_PART(SPLIT_PART(Fecha,'al',1),' ',2),'DD/MM/YY'),'YYYY-MM-DD')) as ID_FECHA,
+    ID_FECHA,
     provincias_aux.ID_COMUNIDAD AS ID_COMUNIDAD,
     provincias_aux.CAPITAL_CCAA_ID AS CAPITAL_CCAA_ID,
     NumCentros_R1,
@@ -32,6 +26,8 @@ select
     NumResidentes_COVID_R1,
     NumPlantilla_COVID_R1,
     Fallecidos_Covid_R1,
+    calendario_aux.ID_FECHA_UNION AS ID_FECHA_UNION,
     WEEK(ID_FECHA)||YEAR(ID_FECHA)||ID_COMUNIDAD AS ID_RESIDENCIAS
 from {{ ref('stg_fact_residencias')}}
 left join provincias_aux using(CCAA)
+left join {{ ref('tmp_dim_calendario')}} calendario_aux using(ID_FECHA)

@@ -1,36 +1,19 @@
 version: 2
 
 models:
-  - name: stg_fact_hospitales
-    description: almacen provisional para nuestros datos de los casos
+  - name: fact_hospitales
+    description: modelo final de la tabla hospitales preparado para cargar en powerBI.
     columns:
-      - name: ID_HOSPITALES
-        description: clave primaria para hospitales
-        tests:
-          - unique
-          - not_null
-      - name: ID_FECHA
-        description: fecha en la que se registran las hospitaliaciones por contagio.
+      - name: ID_FECHA_NUMERICO
+        description: identificador de fecha numérico en la que se registran las hospitaliaciones por contagio.
         tests:
           - not_null
-      - name: UNIDAD
-        description: unidad hospitalaria en la que se encuentran los casos de contagio.
-        tests:
-          - not_null
-      - name: COD_CCAA
-        description: código de identificación de la comunidad autónoma en la que se registran las hospitalizaciones.
-        tests:
-          - not_null
-      - name: CCAA
-        description: Comunidad autónoma en la que se registran las hospitalizaciones.
+      - name: TIPO
+        description: tipo de hospitalización.
         tests:
           - not_null
       - name: ID_PROVINCIA
         description: identificador de la provincia en la que se registran las hospitalizaciones.
-        tests:
-          - not_null
-      - name: PROVINCIA
-        description: Provincia en la que se registran las hospitalizaciones.
         tests:
           - not_null
       - name: TOTAL_CAMAS
@@ -54,3 +37,6 @@ models:
         tests:
           - not_null
       
+      
+     
+    

@@ -7,3 +7,51 @@ sources:
     schema: covid
     tables:
       - name: hospitals
+        description: Clon de la tabla hospitals de la base de datos de Snowflake.
+        columns:
+        - name: Fecha
+          description: fecha en la que se registran las hospitaliaciones por contagio.
+          tests:
+            - not_null
+        - name: Unidad
+          description: unidad hospitalaria en la que se encuentran los casos de contagio.
+          tests:
+            - not_null
+        - name: COD_CCAA
+          description: código de identificación de la comunidad autónoma en la que se registran las hospitalizaciones.
+          tests:
+            - not_null
+        - name: CCAA
+          description: Comunidad autónoma en la que se registran las hospitalizaciones.
+          tests:
+            - not_null
+        - name: Cod_Provincia
+          description: identificador de la provincia en la que se registran las hospitalizaciones.
+          tests:
+            - not_null
+        - name: Provincia
+          description: Provincia en la que se registran las hospitalizaciones.
+          tests:
+            - not_null
+        - name: TOTAL_CAMAS
+          description: número total de las camas registradas en los hospitales.
+          tests:
+            - not_null
+        - name: OCUPADAS_COVID_19
+          description: número total de las camas ocupadas por covid19 en los hospitales.
+          tests:
+            - not_null
+        - name: OCUPADAS_NO_COVID_19
+          description: número total de las camas ocupadas por otra causa distinta a covid19 en los hospitales.
+          tests:
+            - not_null
+        - name: INGRESOS_COVID_19
+          description: número total de ingresos por covid19 en los hospitales.
+          tests:
+            - not_null
+        - name: ALTAS_24_H_COVID_19
+          description: número total de altas por covid19 en las últimas 24 horas en los hospitales.
+          tests:
+            - not_null
+        
+        

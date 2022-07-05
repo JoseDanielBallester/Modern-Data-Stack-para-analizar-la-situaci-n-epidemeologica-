@@ -2,18 +2,58 @@ version: 2
 
 models:
   - name: stg_fact_poblacion
-    description: poblacion
+    description: población.
     columns:
       - name: ID_POBLACION
-        descripcion: clave primaria para hospitales
+        description: clave primaria para poblacion
         tests:
           - unique
           - not_null
+      - name: PROVINCIAS
+        description: nombre y número de provincias.
+        tests:
+          - not_null
+      - name: EDAD
+        description: grupos de edad de la población.
+        tests:
+          - not_null
+      - name: PROCEDENCIA
+        description: procedencia de la población.
+        tests:
+          - not_null
+      - name: SEXO
+        description: sexo de la población.
+        tests:
+          - not_null
+      - name: FECHA
+        description: fecha de registro de la población.
+        tests:
+          - not_null
+      - name: TOTAL
+        description: total de la población.
+        tests:
+          - not_null
   - name: stg_fact_poblacion_actual
-    description: poblacion actual
+    description: poblacion actual.
     columns:
       - name: ID_POBLACION_ACTUAL
-        descripcion: clave primaria para hospitales
+        description: clave primaria para hospitales
         tests:
           - unique
+          - not_null
+      - name: SEXO
+        description: sexo de la población actual.
+        tests:
+          - not_null
+      - name: COMUNIDADES
+        description: comunidades de la población actual.
+      - name: PROVINCIAS
+        descripcion: provincias de la población actual.
+      - name: EDAD
+        description: grupos de edad de la población actual.
+        tests:
+          - not_null
+      - name: TOTAL
+        description: total de la población actual.
+        tests:
           - not_null

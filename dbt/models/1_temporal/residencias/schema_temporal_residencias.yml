@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: stg_fact_residencias
-    description: almacen provisional para nuestros datos de los casos
+  - name: tmp_fact_residencias
+    description: almacen temporal para nuestros datos de las residencias.
     columns:
       - name: ID_RESIDENCIAS
         description: clave primaria para residencias.
@@ -13,33 +13,12 @@ models:
         description: fecha en la que se registran las residencias.
         tests:
           - not_null
-      - name: CCAA
-        description: comunidad autónoma a la que pertenecen las residencias.
+      - name: ID_COMUNIDAD
+        description: identificador de la comunidad autónoma a la que pertenecen las residencias.
         tests:
           - not_null
-      - name: NUMCENTROS
-        description: número de centros de residencias registrados en cada comunidad autónoma.
-        tests:
-          - not_null
-      - name: NUMCASOS
-        description: número de casos registrados en los centros de residencias.
-        tests:
-          - not_null
-
-      - name: NUMRESIDENTES
-        description: número de residentes registrados en los centros de residencias.
-        tests:
-          - not_null
-      - name: NUMRESIDENTES_COVID
-        description: número de residentes registrados con covid en los centros de residencias.
-        tests:
-          - not_null
-      - name: NUMPLANTILLA_COVID
-        description: número de plantilla covid en los centros de residencias.
-        tests:
-          - not_null
-      - name: FALLECIDOS_COVID
-        description: número de residentes fallecidos por covid en los centros de residencias.
+      - name: CAPITAL_CCAA_ID
+        description: identificador de la capital de la comunidad autónoma a la que pertenecen las residencias.
         tests:
           - not_null
       - name: NUMCENTROS_R1
@@ -67,4 +46,9 @@ models:
         description: número de residentes fallecidos por covid en los centros de residencias de ancianos.
         tests:
           - not_null
+      - name: ID_FECHA_UNION
+        descripcion: identificador fecha unión de contagio.
+        tests:
+          - not_null
+
       
