@@ -1,8 +1,3 @@
-{{
-    config(
-        unique_key="ID_DEMOGRAFIA"
-    )
-}}
 SELECT
     SEXO::varchar AS SEXO,
     GRUPO_EDAD::varchar AS GRUPO_EDAD,

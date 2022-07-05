@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: dim_demografia
+    description: modelo final de la tabla demografía preparado para cargar en powerBI.
+    columns:
+      - name: ID_DEMOGRAFIA
+        description: clave primaria para demografía.
+        tests:
+          - unique
+          - not_null
+      - name: SEXO
+        description: sexo de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+      - name: GRUPO_EDAD
+        description: grupo de edad de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+      - name: GRUPO_EDAD_CODIGO
+        description: código del grupo de edad de la persona de la que se registra el caso de contagio.
+        tests:
+          - not_null
+  - name: dim_provincias
+    description: modelo final de la tabla provincias preparado para cargar en powerBI.
+    columns:
+      - name: ID_PROVINCIA
+        description: clave primaria para provincia.
+        tests:
+          - unique
+          - not_null
+      - name: PROVINCIA
+        description: nombre de las provincias.
+        tests:
+          - not_null
+      - name: PROVINCIA_COMPLETA
+        description: provincia y comunidad autónoma.
+        tests:
+          - not_null
+      - name: CCAA
+        description: comunidad autónoma a la que pertenecen las provincias.
+        tests:
+          - not_null
+      - name: CAPITAL_CCAA_ID
+        description: identificador de la capital de la comunidad autónoma a la que pertenecen las residencias.
+        tests:
+          - not_null
+    
+    
+      

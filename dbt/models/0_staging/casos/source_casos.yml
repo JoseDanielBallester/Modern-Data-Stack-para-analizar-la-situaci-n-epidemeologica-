@@ -2,10 +2,46 @@ version: 2
 
 sources:
   - name: casos
-    description: Clon de la base de datos de Snowflake
+    description: Clon de la base de datos de Snowflake.
     database: RAW
     schema: covid
-    tables:
+    tables: 
       - name: cases
+        description: Clon de la tabla cases de la base de datos de Snowflake.
+        columns:
+        - name: FECHA
+          description: fecha en la que se registran los casos de contagio.
+          tests:
+            - not_null
+        - name: PROVINCIA_ISO
+          description: identificador de la provincia en la que se registran los casos de contagio.
+          tests:
+            - not_null
+        - name: SEXO
+          description: sexo de la persona de la que se registra el caso de contagio.
+          tests:
+            - not_null
+        - name: GRUPO_EDAD
+          description: grupo de edad de la persona de la que se registra el caso de contagio.
+          tests:
+            - not_null
+        - name: NUM_CASOS
+          description: número de casos de contagio registrados.
+          tests:
+            - not_null
+        - name: NUM_HOSP
+          description: número de hospitalizaciones por contagio.
+          tests:
+            - not_null
+        - name: NUM_UCI
+          description: número de hospitalizaciones UCI por contagio.
+          tests:
+            - not_null
+        - name: NUM_DEF
+          description: número de defunciones por contagio.
+          tests:
+            - not_null
+          
+        
 
 

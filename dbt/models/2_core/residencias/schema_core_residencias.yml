@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: fact_residencias
+    description: modelo final de la tabla residencias preparado para cargar en powerBI.
+    columns:
+      - name: ID_FECHA_NUMERICO
+        description: identificador de fecha numérico en la que se registran las residencias.
+        tests:
+          - not_null
+      - name: CAPITAL_CCAA_ID
+        description: identificador de la capital de la comunidad autónoma a la que pertenecen las residencias.
+        tests:
+          - not_null
+      - name: NUMCENTROS_R1
+        description: número de centros de residencias de ancianos registrados en cada comunidad autónoma.
+        tests:
+          - not_null
+      - name: CENTROSCASOS_R1
+        description: número de casos registrados en los centros de residencias de ancianos.
+        tests:
+          - not_null
+
+      - name: NUMRESIDENTES_R1
+        description: número de residentes registrados en los centros de residencias de ancianos.
+        tests:
+          - not_null
+      - name: NUMRESIDENTES_COVID_R1
+        description: número de residentes registrados con covid en los centros de residencias de ancianos.
+        tests:
+          - not_null
+      - name: NUMPLANTILLA_COVID_R1
+        description: número de plantilla covid en los centros de residencias de ancianos.
+        tests:
+          - not_null
+      - name: FALLECIDOS_COVID_R1
+        description: número de residentes fallecidos por covid en los centros de residencias de ancianos.
+        tests:
+          - not_null
+    
+      

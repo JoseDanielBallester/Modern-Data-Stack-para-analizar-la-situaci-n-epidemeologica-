@@ -1,14 +1,7 @@
-{{
-    config(
-        unique_key="ID_PROVINCIA"
-    )
-}}
-
 select 
     ID_PROVINCIA::integer AS ID_PROVINCIA,
-    CODIGO::varchar AS CODIGO,
     PROVINCIA::varchar AS PROVINCIA,
-    ID_COMUNIDAD::integer AS ID_COMUNIDAD,
-    CCAA::varchar AS CCAA,
-    CAPITAL_CCAA_ID
+    COMUNIDAD_AUTONOMA::varchar AS CCAA,
+    PROVINCIA_COMPLETA::varchar AS PROVINCIA_COMPLETA,
+    CAPITAL_CCAA_ID::integer AS CAPITAL_CCAA_ID
 from {{ ref('tmp_dim_provincias')}}

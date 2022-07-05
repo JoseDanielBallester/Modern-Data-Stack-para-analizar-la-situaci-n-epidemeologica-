@@ -7,4 +7,48 @@ sources:
     schema: covid
     tables:
       - name: population
+        description: Clon de la tabla population de la base de datos de Snowflake.
+        columns:
+        - name: Provincias
+          description: nombre y número de provincias.
+          tests:
+            - not_null
+        - name: EDAD_GRUPOS_QUINQUENALES_
+          description: grupos de edad de la población.
+          tests:
+            - not_null
+        - name: ESPANOLES_EXTRANJEROS
+          description: procedencia de la población.
+          tests:
+            - not_null
+        - name: Sexo
+          description: sexo de la población.
+          tests:
+            - not_null
+        - name: ANO
+          description: fecha de registro de la población.
+          tests:
+            - not_null
+        - name: TOTAL
+          description: total de la población.
+          tests:
+            - not_null
       - name: actual_population
+        description: Clon de la tabla acual_population de la base de datos de Snowflake.
+        columns:
+        - name: Sexo
+          description: sexo de la población actual.
+          tests:
+            - not_null
+        - name: COMUNIDADES_Y_CIUDADES_AUTONOMAS
+          description: comunidades de la población actual.
+        - name: Provincias
+          descripcion: provincias de la población actual.
+        - name: EDAD_HASTA_100_Y_MAS_
+          description: grupos de edad de la población actual.
+          tests:
+            - not_null
+        - name: TOTAL
+          description: total de la población actual.
+          tests:
+            - not_null

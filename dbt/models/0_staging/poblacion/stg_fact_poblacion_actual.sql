@@ -1,9 +1,3 @@
-{{
-    config(
-        unique_key="ID_POBLACION_ACTUAL"
-    )
-}}
-
 select distinct
     Sexo AS SEXO,
     COMUNIDADES_Y_CIUDADES_AUTONOMAS AS COMUNIDADES,
