@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_poblacion
-    description: modelo final de la tabla poblacion preparado para cargar en powerBI.
+    description: modelo final de la tabla de hechos poblacion preparado para cargar en powerBI.
     columns:
       - name: ID_PROVINCIA
         description: identificador de provincias.

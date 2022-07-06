@@ -1,8 +1,31 @@
 version: 2
 
 models:
+  - name: dim_calendario
+    description: modelo final de la tabla de dimensiones calendario preparado para cargar en powerBI.
+    columns:
+      - name: ID_FECHA_NUMERICO
+        description: clave primaria para calendario.
+        tests:
+          - unique
+          - not_null
+      - name: ID_FECHA
+        description: fecha de registro.
+        tests:
+          - not_null
+      - name: '"AÑO"'
+        description: año de registro.
+        tests:
+          - not_null
+      - name: '"SEMANA_MES_AÑO"'
+        description: semana_mes_año de registro.
+        tests:
+          - not_null
+      - name: FECHA_SEMANAL
+        description: fecha semanal de registro.
+
   - name: dim_demografia
-    description: modelo final de la tabla demografía preparado para cargar en powerBI.
+    description: modelo final de la tabla de dimensiones demografía preparado para cargar en powerBI.
     columns:
       - name: ID_DEMOGRAFIA
         description: clave primaria para demografía.
@@ -22,7 +45,7 @@ models:
         tests:
           - not_null
   - name: dim_provincias
-    description: modelo final de la tabla provincias preparado para cargar en powerBI.
+    description: modelo final de la tabla de dimensiones provincias preparado para cargar en powerBI.
     columns:
       - name: ID_PROVINCIA
         description: clave primaria para provincia.

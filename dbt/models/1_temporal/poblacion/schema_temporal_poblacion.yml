@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: tmp_fact_poblacion
-    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla población.
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla de hechos población.
     columns:
       - name: ID_POBLACION
         description: clave primaria para población.

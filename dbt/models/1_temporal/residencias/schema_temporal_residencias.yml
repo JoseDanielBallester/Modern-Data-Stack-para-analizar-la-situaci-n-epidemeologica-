@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: tmp_fact_residencias
-    description: almacen temporal para nuestros datos de las residencias.
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla de hechos residencias.
     columns:
       - name: ID_RESIDENCIAS
         description: clave primaria para residencias.

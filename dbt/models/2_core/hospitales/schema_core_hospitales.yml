@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_hospitales
-    description: modelo final de la tabla hospitales preparado para cargar en powerBI.
+    description: modelo final de la tabla de hechos hospitales preparado para cargar en powerBI.
     columns:
       - name: ID_FECHA_NUMERICO
         description: identificador de fecha numérico en la que se registran las hospitaliaciones por contagio.

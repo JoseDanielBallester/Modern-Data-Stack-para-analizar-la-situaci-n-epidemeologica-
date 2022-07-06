@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: tmp_fact_casos
-    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla casos.
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla de hechos casos.
     columns:
       - name: ID_CASOS
         description: clave primaria para casos.
