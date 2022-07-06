@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_residencias
-    description: modelo final de la tabla residencias preparado para cargar en powerBI.
+    description: modelo final de la tabla de hechos residencias preparado para cargar en powerBI.
     columns:
       - name: ID_FECHA_NUMERICO
         description: identificador de fecha numérico en la que se registran las residencias.

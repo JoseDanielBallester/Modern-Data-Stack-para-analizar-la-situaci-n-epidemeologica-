@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fact_casos
-    description: modelo final de la tabla casos preparado para cargar en powerBI.
+    description: modelo final de la tabla de hechos casos preparado para cargar en powerBI.
     columns:
       - name: ID_PROVINCIA
         description: identificador de provincia en la que se registran los casos de contagio.

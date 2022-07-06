@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: tmp_fact_hospitales
-    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla hospitales.
+    description: modelo intermedio donde se realizan todos las transformaciones principales de la tabla de hechos hospitales.
     columns:
       - name: ID_HOSPITALES
         description: clave primaria para hospitales.
