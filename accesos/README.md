@@ -6,11 +6,11 @@ Para ver los requisitos acceder al apéndice E documentación de usuario, de los
 ## Acceso para desarrolladores:
 -[Enlace de acceso a Google Cloud](https://console.cloud.google.com/welcome?project=confident-trail-355019)
 
-...-[Enlace de acceso a Cloud Pub/Sub](https://console.cloud.google.com/cloudpubsub/topic/list?project=confident-trail-355019)
+    -[Enlace de acceso a Cloud Pub/Sub](https://console.cloud.google.com/cloudpubsub/topic/list?project=confident-trail-355019)
 
-...-[Enlace de acceso a Cloud Scheduler](https://console.cloud.google.com/cloudscheduler?project=confident-trail-355019)
+    -[Enlace de acceso a Cloud Scheduler](https://console.cloud.google.com/cloudscheduler?project=confident-trail-355019)
 
-...-[Enlace de acceso a Cloud Functions](https://console.cloud.google.com/functions/list?project=confident-trail-355019)
+    -[Enlace de acceso a Cloud Functions](https://console.cloud.google.com/functions/list?project=confident-trail-355019)
 
 -[Enlace de acceso a Amazon S3](https://s3.console.aws.amazon.com/s3/buckets/covidmoderndatastack?region=eu-west-3&tab=objects)
 
