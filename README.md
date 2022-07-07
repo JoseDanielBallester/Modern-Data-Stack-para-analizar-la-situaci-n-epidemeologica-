@@ -3,8 +3,9 @@ Este repositorio abarca el proceso de desarrollo de realización del Trabajo de 
 
 ## Descripción del TFG
 Se va a implementar un cuadro de mandos que permite la visualización de la situación general de Covid-19 en España. Para ello se ha utilizado un nuevo paradigma a la hora de montar arquitecturas que dan soporte al ciclo de vida de los datos, teniendolos actualizados de forma automática, gracias al uso de la tecnología en la nube, que trae muchas ventajas con respecto a las tecnologías tradicionales. Se han empleado principalmente estas herramientas: Microsoft Power BI, Snowflake, Fivetran, Amazon S3, Python y Google cloud.
-
- <img src="https://gyazo.com/de71050193eeb18f5219a30a95a50d76" height="60">
+<a href="https://gyazo.com/de71050193eeb18f5219a30a95a50d76">
+  <img src="https://gyazo.com/de71050193eeb18f5219a30a95a50d76">
+</a>
 
 ## Autor: 
 - José Daniel Ballester Delgado
@@ -14,11 +15,11 @@ Se va a implementar un cuadro de mandos que permite la visualización de la situ
 - José Manuel Galán Ordax
 
 ## Página web
-El proyecto se encuentra desplegado en este [enlace]([https://cloud.getdbt.com/accounts/60634/develop/1322589/docs/index.html#!/overview](https://app.powerbi.com/reportEmbed?reportId=1bac7505-a8ee-4592-81ea-4d9384ce787d&autoAuth=true&ctid=2aa3b0b5-a782-4f38-a898-e483b20e8d61&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D))
+El proyecto se encuentra desplegado en este [enlace](https://app.powerbi.com/reportEmbed?reportId=1bac7505-a8ee-4592-81ea-4d9384ce787d&autoAuth=true&ctid=2aa3b0b5-a782-4f38-a898-e483b20e8d61&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D)
 
-
- <img src="[https://gyazo.com/de71050193eeb18f5219a30a95a50d76](https://gyazo.com/4ab77f28ef5d54b7ec1d4d407c77f6be)" height="60">
-
+<a href="https://gyazo.com/4ab77f28ef5d54b7ec1d4d407c77f6be">
+  <img src="https://gyazo.com/4ab77f28ef5d54b7ec1d4d407c77f6be">
+</a>
 ## License
 
 Copyright (c) 
