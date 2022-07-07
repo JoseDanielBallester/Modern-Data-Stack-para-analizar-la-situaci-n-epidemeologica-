@@ -1,0 +1,995 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+Esta parte del anexo define los requisitos y objetivos que debe cumplir la aplicación, sirviendo a su vez, como documentación del análisis de la aplicación.
+
+\section{Objetivos generales}
+
+
+\begin{itemize}
+    \item Desarrollar una arquitectura de datos que recopile la información de las principales fuentes oficiales encargadas de publicar datos sobre el estado de la pandemia en España.
+    \item Almacenar toda la información recopilada de forma organizada y accesible en la nube.
+    \item Realizar la extracción, carga y transformación de los datos automáticamente en la nube.
+    \item Proporcionar un acceso visual a la información a través de representaciones gráficas.
+    \item Facilitar al usuario la interacción con los datos mediante la aplicación de filtros para la adquisición de la información.
+\end{itemize}
+
+\section{Catalogo de requisitos}
+\subsection{Requisitos funcionales}
+\begin{itemize}
+    \tightlist
+    \item \textbf{RF-1 Mostrar informe:} Debe mostrar a los usuarios el informe.
+    \item \textbf{RF-2 Mostrar página resumen:} Debe mostrar la página que contiene el resumen de la situación general de COVID-19.
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-2.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-2.2 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-2.3 Tarjeta de hospitalizaciones:} Debe proporcionar el número de hospitalizaciones en función del filtrado aplicado.
+            \item \textbf{RF-2.4 Tarjeta de ingresos UCI:} Debe proporcionar el número de ingresos en la UCI en función del filtrado aplicado.
+            \item \textbf{RF-2.5 Tarjeta de muertes:} Debe proporcionar el número de muertes en función del filtrado aplicado.
+             \item \textbf{RF-2.6 Tarjeta de casos confirmados:} Debe proporcionar el número de casos confirmados en función del filtrado aplicado.
+            \item \textbf{RF-2.7 Gráfico de comunidades con mayor porcentaje de hospitalizaciones graves:} Debe mostrar un gráfico de barras 100\% apiladas horizontalmente con el porcentaje de hospitalizaciones UCI y hospitalizaciones convencionales, agrupado por comunidades autónomas, ordenado de forma descendente en función del porcentaje de hospitalizaciones graves, y todo ello en función del filtrado aplicado.
+            \item \textbf{RF-2.8 Gráfico de muertes por grupo de edad:} Debe mostrar un gráfico de barras apiladas horizontalmente con el número de muertes agrupadas por el grupo de edad, en función del filtrado aplicado.
+            \item \textbf{RF-2.9 Gráfico de la evolución diaria del Covid-19:} Debe mostrar un gráfico de áreas con la evolución diaria de los contagios, muertes y ‱ de letalidad \footnote{‱ de letalidad: es la magnitud, de personas que fallecen por una determinada enfermedad entre los contagiados, en un determinado periodo y localización. En este caso se emplea como el número de muertes entre el número de casos causados por el covid, multiplicado por diez mil.} , en función del filtrado aplicado.
+            \item \textbf{RF-2.10 Gráfico de hospitalizaciones por sexo:} Debe mostrar un gráfico de barras apiladas verticalmente con los datos agrupados por sexo.
+    \end{itemize}
+    \item \textbf{RF-3-Mostrar página de incidencia acumulada:} Debe mostrar la página que contiene el análisis de la Incidencia Acumulada a 14 días. \footnote{Incidencia Acumulada: Es un indicador para la expansión de una enfermedad. Su cálculo se obtiene mediante la suma del número de casos notificados en 14 dias.}
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-3.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-3.2 Filtro comunidades:} Debe proporcionar la opción de filtrar la información en función de la comunidad autónoma.
+            \item \textbf{RF-3.3 Filtro provincia:}Debe proporcionar la opción de filtrar la información en función de la provincia.
+            \item \textbf{RF-3.4 Filtro grupo de edad:}Debe proporcionar la opción de filtrar la información en función del grupo de edad.
+            \item \textbf{RF-3.5 Filtro sexo:}Debe proporcionar la opción de filtrar la información en función del sexo.
+            \item \textbf{RF-3.6 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-3.7 Tarjeta de la fecha de incidencia acumulada:} Debe proporcionar la fecha de la incidencia acumulada que se está aplicando a los gráficos de la página, esta fecha va en función del filtro fecha.
+            \item \textbf{RF-3.8 Tarjeta de IA a 14 días cada 100.000 habitantes:} Debe proporcionar el número de incidencia acumulada de 14 días cada 100.000 habitantes en función del filtrado aplicado.
+            \item \textbf{RF-3.9 Tarjeta de IA a 14 días:} Debe proporcionar el número de incidencia acumualada de 14 días en función del filtrado aplicado.
+            \item \textbf{RF-3.10 Gráfico de IA a 14 días por sexo:} Debe mostrar un gráfico de anillos con IA a 14 días agrupada por sexo.
+            \item \textbf{RF-3.11 Gráfico de IA a 14 días e IA a 14 días cada 100.000 habitantes por grupo de edad:} Debe mostrar un gráfico de áreas con la IA a 14 días y la IA a 14 días cada 100.000 habitantes agrupadas por grupo de edad.
+            \item \textbf{RF-3.12 Pirámide poblacional de IA a 14 días cada 100.000 habitantes:} Debe mostrar una piramide de población con la IA a 14 días cada 100.000 habitantes.
+            \item \textbf{RF-3.13 Pirámide poblacional de IA a 14 días:} Debe mostrar una pirámide de población con la IA a 14 días.
+            \item \textbf{RF-3.14 Mapa de IA a 14 días cada 100.000 habitantes:} Debe mostrar un mapa coroplético con IA a 14 días cada 100.000 habitantes agrupada por provincias.
+            \item \textbf{RF-3.15 Mapa de IA a 14 días:} Debe mostrar un mapa coroplético con IA a 14 días agrupada por provincias.
+    \end{itemize} 
+    \item \textbf{RF-4-Mostrar página de casos y muertes:} Debe mostrar la página que contiene el análisis de los casos y muertes.
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-4.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-4.2 Filtro comunidades:} Debe proporcionar la opción de filtrar la información en función de la comunidad autónoma.
+            \item \textbf{RF-4.3 Filtro provincia:}Debe proporcionar la opción de filtrar la información en función de la provincia.
+            \item \textbf{RF-4.4 Filtro grupo de edad:}Debe proporcionar la opción de filtrar la información en función del grupo de edad.
+            \item \textbf{RF-4.5 Filtro sexo:}Debe proporcionar la opción de filtrar la información en función del sexo.
+            \item \textbf{RF-4.6 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-4.7 Tarjeta de los casos del último mes:} Debe proporcionar el número casos en el último mes en función del filtro aplicado, excepto el filtro fecha, ya que cogerá un intervalo de 30 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-4.8 Tarjeta de las muertes del último mes:} Debe proporcionar el número de muertes en el último mes en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 30 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-4.9 Tarjeta de los casos de la última semana:} Debe proporcionar el número casos en la última semana en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-4.10 Tarjeta de las muertes de la última semana:} Debe proporcionar el número de muertes en la última semana en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-4.11 Gráfico de muertes por grupo de edad:} Debe mostrar un treemap con las muertes agrupados por grupo de edad.
+            \item \textbf{RF-4.12 Gráfico de casos por grupo de edad:} Debe mostrar un treemap con los casos agrupados por grupo de edad.
+            \item \textbf{RF-4.13 Gráfico de Evolución diaria de casos y muertes acumulados:} Debe mostrar un gráfico de líneas con la evolución diaria de casos y muertes acumulados.
+            \item \textbf{RF-4.14 Gráfico de casos y muertes cada 100.000 habitantes por cumunidad:} Debe mostrar un gráfico de dispersión con los casos y muertes cada 100.000 habitantes agrupados por comunidad autónoma.
+            \item \textbf{RF-4.15 Gráfico de muertes por comunidad:} Debe mostrar un mapa coroplético con las muertes agrupadas por comunidades autónomas.
+    \end{itemize}       
+    \item \textbf{RF-5-Mostrar página de ingresos y altas hospitalarias:}Debe mostrar la página que contiene el análisis de los ingresos y altas hospitalarias.
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-5.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-5.2 Filtro comunidades:} Debe proporcionar la opción de filtrar la información en función de la comunidad autónoma.
+            \item \textbf{RF-5.3 Filtro provincia:}Debe proporcionar la opción de filtrar la información en función de la provincia.
+            \item \textbf{RF-5.4 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-5.5 Tarjeta de la fecha de nuevos ingresos en 7 días:} Debe proporcionar la fecha de nuevos ingresos en 7 días que se está aplicando a los gráficos de la página, esta fecha va en función del filtro fecha.
+            \item \textbf{RF-5.6 Tarjeta de los ingresos en 7 días:} Debe proporcionar el número de los ingresos en 7 días en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-5.7 Tarjeta de las altas en 7 días:} Debe proporcionar el número de altas en 7 días en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-5.8 Gráfico de evolución diaria de ingresos por tipo de hospitalización:} Debe mostrar un gráfico de barras 100\% apiladas verticalmente con la evolución diaria del porcentaje de hospitalizaciones UCI y hospitalizaciones convencionales, en función del filtrado aplicado.
+            \item \textbf{RF-5.9 Gráfico de evolución diaria de altas e ingresos :} Debe mostrar un gráfico de columnas agrupadas y de líneas con la evolución diaria de altas e ingresos.
+            \item \textbf{RF-5.10 Gráfico de tasa de ingresos e ingresos UCI en 7 días cada 100.000 habitantes por comunidad:} Debe mostrar un gráfico de dispersión con ingresos e ingresos UCI en 7 dias cada 100.000 habitantes agrupados por comunidad autónoma.
+            \item \textbf{RF-5.11 Mapa de tasa de ingresos UCI en 7 días cada 100.000 habitantes:} Debe mostrar un mapa coroplético con la tasa de ingresos UCI en 7 días cada 100.000 habitantes agrupado por comunidad autónoma.
+            \item \textbf{RF-5.12 Mapa de tasa de ingresos en 7 días cada 100.000 habitantes:} Debe mostrar un mapa coroplético con la tasa de ingresos en 7 días cada 100.000 habitantes agrupado por comunidad autónoma.
+    \end{itemize}
+    \item \textbf{RF-6-Mostrar página de camas hospitalarias} Debe mostrar la página que contiene el análisis de la ocupación de las camas hospitalarias.
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-6.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-6.2 Filtro comunidades:} Debe proporcionar la opción de filtrar la información en función de la comunidad autónoma.
+            \item \textbf{RF-6.3 Filtro provincia:}Debe proporcionar la opción de filtrar la información en función de la provincia.
+            \item \textbf{RF-6.4 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-6.5 Tarjeta de fecha de ocupación de camas hospitalarias:} Debe proporcionar la fecha de ocupación de camas hospitalarias que se está aplicando a los gráficos de la página, esta fecha va en función del filtro fecha.
+            \item \textbf{RF-6.6 Tarjeta de porcentaje de camas ocupadas por covid:} Debe proporcionar el porcentaje de camas ocupadas por covid en función del filtrado aplicado, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha la fecha de actualización de la hoja..
+            \item \textbf{RF-6.7 Tarjeta de porcentaje de camas UCI ocupadas por covid:} Debe proporcionar el porcentaje de camas UCI ocupadas por covid en función del filtrado aplicado, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha la fecha de actualización de la hoja.
+            \item \textbf{RF-6.8 Gráfico de evolución diaria de tasa de ocupación covid y tasa de ocupación UCI covid cada 100.000 habitantes:} Debe mostrar un gráfico de áreas con la evolución diaria de la tasa de ocupación covid \footnote{Tasa de ocupación covid: tasa de cuánta gente está ocupando una cama hospitalaria por covid cada 100.000 habitantes.} cada 100.000 habitantes y de la tasa de ocupación UCI covid \footnote{Tasa de ocupación UCI covid: tasa de cuánta gente está ocupando una cama UCI hospitalaria por covid cada 100.000 habitantes.} cada 100.000 habitantes.
+            \item \textbf{RF-6.9 Gráfico comparativo de la evolución diaria del porcentaje de camas ocupadas según el tipo:} Debe mostrar un gráfico de áreas con la evolución diaria del porcentaje de: camas totales ocupadas, camas totales UCI ocupadas, camas covid ocupadas y camas UCI covid ocupadas.
+            \item \textbf{RF-6.10 Matriz de ocupación covid y ocupación UCI covid cada 100.000 habitantes:} Debe mostrar una matriz de la tasa de ocupación covid cada 100.000 habitantes y de la tasa de ocupación UCI covid cada 100.000 habitantes agrupado por comunidades autónomas.
+            \item \textbf{RF-6.11 Mapa de porcentaje de camas ocupadas por covid:} Debe mostrar un mapa coroplético con el porcentaje de camas ocupadas por covid agrupado por comunidad.
+            \item \textbf{RF-6.12 Mapa de porcentaje de camas UCI ocupadas por covid:} Debe mostrar un mapa coroplético con el porcentaje de camas UCI ocupadas por covid agrupado por comunidad.
+    \end{itemize} 
+    \item \textbf{RF-7-Mostrar página de residencias}.Debe mostrar la página que contiene el análisis de la situación de las residencias de ancianos.
+    \begin{itemize}
+        \tightlist
+            \item \textbf{RF-7.1 Filtro fecha:} Debe proporcionar la opción de filtrar la información en función de la fecha.
+            \item \textbf{RF-7.2 Filtro comunidades:} Debe proporcionar la opción de filtrar la información en función de la comunidad autónoma.
+            \item \textbf{RF-7.3 Tarjeta de fecha de actualización:} Debe proporcionar la fecha en la que se actualizaron por última vez los datos de esa hoja.
+            \item \textbf{RF-7.4 Tarjeta de fecha de datos residencias:} Debe proporcionar la fecha de datos de residencias que se está aplicando a los gráficos de la página, esta fecha va en función del filtro fecha.
+            \item \textbf{RF-7.5 Tarjeta de los contagios de la última semana:} Debe proporcionar los contagios de la última semana en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-7.6 Tarjeta de las muertes de la última semana:} Debe proporcionar el número de muertes en la última semana en función del filtrado aplicado, excepto el filtro fecha,  ya que cogerá un intervalo de 7 días desde la fecha de actualización de la hoja.
+            \item \textbf{RF-7.7 Gráfico de evolución semanal de centros con y sin casos:}
+             Debe mostrar un gráfico de barras 100\% apiladas verticalmente con la evolución semanal del porcentaje de centros con casos y centros sin casos, en función del filtrado aplicado.
+            \item \textbf{RF-7.8 Gráfico de comparación entre residentes y personas de +80 años:}  Debe mostrar un gráfico de líneas con la evolución temporal de: IA 14 días cada 100.000 residentes, IA 14 días cada 100.000 habitantes, ‱ letalidad y  ‱ letalidad  residencias.
+            \item \textbf{RF-7.9 Gráfico de centros con y sin casos de la última semana:} Debe mostrar un gráfico circular con los datos agrupados por centros con casos y centros sin casos, en función del filtrado aplicado.
+            \item\textbf{RF-7.10 Mapa de muertes acumuladas a 14 días de residentes:} Debe mostrar un mapa coroplético con las muertes acumuladas a 14 días cada 100.000 residentes, agrupados por comunidad autónoma.
+            \item\textbf{RF-7.11 Mapa de por diez mil de letalidad a 14 días de residentes:} Debe mostrar un mapa coroplético con el por diez mil de letalidad a 14 días de residentes, agrupados por comunidad autónoma.
+            \item\textbf{RF-7.12 Mapa de incidencia acumulada a 14 días cada 100.000 residentes:} Debe mostrar un mapa coroplético con la incidencia acumulada a 14 días de residentes agrupados por comunidad autónoma.
+    \end{itemize} 
+\end{itemize}
+\subsection{Requisitos no funcionales}
+\begin{itemize}
+    \tightlist
+    \item \textbf{RNF-1 Rendimiento:} Debe garantizar los tiempos de carga proporcionando toda la funcionalidad del sistema de forma óptima y eficiente.
+    \item \textbf{RNF-2 Usabilidad:} Debe proporcionar un entorno fácil e intuitivo, de manera que los usuarios puedan ejercer sus funciones fructuosamente.
+    \item \textbf{RNF-3 Mantenibilidad:} Debe admitir las modificaciones pertinentes de forma que garantice la escalabilidad.
+    \item \textbf{RNF-4 Seguridad:} Debe restringir el acceso y manejo de datos confidenciales.
+    \item \textbf{RNF-5 Capacidad y escalabilidad:} Debe disponer de las continuas actualizaciones de los datos, incluyendo las actualizaciones de las funcionalidades correspondientes.
+    \item \textbf{RNF-6 Portabilidad:} Debe permitir la visualización de datos en cualquier plataforma y sistema operativo.
+    
+
+\end{itemize}
+\section{Especificación de requisitos}
+
+\subsection{Casos de uso}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-01}     &  \textbf{Mostrar informe} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-1 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar el informe\\ de la situación &Covid-19. \\ \hline   
+         \textbf{Precondiciones}      & Se debe tener una cuenta Pro en PowerBI\\&  con el correo de la UBU.\\ \hline
+         \textbf{Acciones}      & Accede a la URL dónde se encuentra el \\& informe. \\ \hline
+         \textbf{Postcondiciones}       & El usuario está dentro del informe y puede \\&acceder a las distintas hojas de este. \\ \hline
+         \textbf{Excepciones}       & No tienes una cuenta Pro en PowerBI con\\& el correo de la UBU, por lo que no te deja\\& acceder al informe. \\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-01 - Mostrar informe.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-02}     &  \textbf{Mostrar página resumen} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-1,RF-2 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar un resumen de\\& la situación general de Covid-19. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido al informe.\\ \hline
+         \textbf{Acciones}      &  Clickar en la pestaña de resumen.\\ \hline
+         \textbf{Postcondiciones}       & Has accedido a la hoja del resumen. \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-02 - Mostrar página resumen.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-03}     &  \textbf{Filtro fecha} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.1, RF-3, RF-3.1, RF-4, RF-4.1, RF-5, RF-5.1,\\& RF-6, RF-6.1, RF-7, RF-7.1 \\ \hline
+         \textbf{Descripción}    & Permite al usuario filtrar la información que desea visualizar \\&en función de la fecha. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a una hoja con este filtro. \\ \hline
+         \textbf{Acciones}      & Modificar el filtro fecha con el intervalo de tiempo deseado. \\ \hline
+         \textbf{Postcondiciones}       & Los gráficos de la hoja donde se ha modificado \\&el filtro cambia en función de esta modificación. \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   &Baja. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-03 - Filtro fecha.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-04}     &  \textbf{Tarjeta de fecha de actualización} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.1, RF-3, RF-3.1, RF-4, RF-4.1, RF-5, \\&RF-5.1, RF-6, RF-6.1, RF-7, RF-7.1 \\  \hline
+         \textbf{Descripción}    & Debe proporcionar la fecha en la que se actualizaron \\&por última vez los datos de esa hoja. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a una hoja con esta tarjeta. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos el resultado de la fecha más actual, dependiendo en que hoja estemos será de una tabla u otra, ignorando el filtro de fecha.
+                 \item Se muestra en la tarjeta la fecha recogida en el paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-04 - Tarjeta de fecha de actualización.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-05}     &  \textbf{Tarjeta de hospitalizaciones} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2,5 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la información del número\\&  de hospitalizaciones en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las hospitalizaciones de la tabla casos, aplicando los filtros que de la hoja resumen.
+                 \item Se muestra en la tarjeta el resultado del paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta \\
+         \hline
+    \end{tabular}}
+    \caption{CU-05 - Tarjeta de hospitalizaciones}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-06}     &  \textbf{Tarjeta de ingresos UCI} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2,5 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la información del número\\& de ingresos UCI en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los ingresos UCI de la tabla casos, aplicando los filtros que de la hoja resumen.
+                 \item Se muestra en la tarjeta el resultado del paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta \\
+         \hline
+    \end{tabular}}
+    \caption{CU-06 - Tarjeta de ingresos UCI.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-07}     &  \textbf{Tarjeta de muertes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2,5 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la información del número\\&  de muertes, en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros que de la hoja resumen.
+                 \item Se muestra en la tarjeta el resultado del paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta \\
+         \hline
+    \end{tabular}}
+    \caption{CU-07 - Tarjeta de muertes.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-08}     &  \textbf{Tarjeta de casos confirmados} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2,6 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número de casos confirmados en \\&función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos confirmados de la tabla casos, aplicando los filtros de la hoja resumen.
+                 \item Se muestra en la tarjeta el resultado del paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta \\
+         \hline
+    \end{tabular}}
+    \caption{CU-08 - Tarjeta de casos confirmados.}
+    \label{tab:my_label}
+\end{table}
+
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-09}     &  \textbf{\makecell{Gráfico de comunidades con mayor porcentaje de \\ hospitalizaciones graves}} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.7 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de barras 100\% apiladas horizontalmente \\&con el porcentaje de hospitalizaciones UCI y hospitalizaciones \\&convencionales, agrupado por comunidades autónomas, ordenado de \\& forma descendente en función del porcentaje de hospitalizaciones \\&graves, y todo ello en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.45\textwidth][c]{12cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las hospitalizaciones de la tabla casos, aplicando los filtros que de la hoja resumen.
+                 \item Se agrupan por comunidades autónomas.
+                 \item Se dividen visualmente por el tipo de hospitalización y se calcula que porcentaje del total corresponde a cada tipo.
+                 \item Se muestra el gráfico de barras horizontales resultante ordenado por las comunidades autónomás que tengas un porcentaje mayor de hospitalizaciones del tipo UCI.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-09 - Gráfico de comunidades con mayor porcentaje de
+hospitalizaciones graves.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-10}     &  \textbf{Gráfico de muertes por grupo de edad} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.8 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de barras apiladas horizontalmente \\&con el número de muertes agrupadas por el grupo de edad, \\& en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.3\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja resumen.
+                 \item Se agrupan por grupo de edad.
+                 \item Se dividen visualmente por el sexo.
+                 \item Se muestra el gráfico de barras horizontales resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-10 - Gráfico de muertes por grupo de edad.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-11}     &  \textbf{Gráfico de la evolución diaria del Covid-19} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.9 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de áreas con la evolución diaria \\&de los contagios, muertes y ‱ de letalidad, en función \\& del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.55\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los contagios de la tabla casos, aplicando los filtros de la hoja resumen.
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja resumen.
+                 \item A partir de los dos campos anteriores, dividiendo los contagios entre las muertes se saca un nuevo campo, la letalidad, el cual se multiplica por diez mil.
+                 \item Se muestra el grafico de área resultante con los datos calculados en los tres apartados anteriores distribuidos sobre el eje y que contiene las fechas en granularidad diaria.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-11 - Gráfico de la evolución diaria del Covid-19.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-12}     &  \textbf{Gráfico de hospitalizaciones por sexo} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-2, RF-2.10 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de barras apiladas verticalmente \\&con los datos agrupados por sexo. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja resumen. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las hospitalizaciones de la tabla casos, aplicando los filtros de la hoja resumen.
+                 \item Se agrupan por el sexo.
+                 \item Se dividen visualmente por grupo de edad.
+                 \item Se muestra el gráfico de barras verticales resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-12 - Gráfico de hospitalizaciones por sexo.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-13}     &  \textbf{Mostrar página de incidencia acumulada} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la página que contiene el \\&análisis de la Incidencia Acumulada a 14 días. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido al informe. \\ \hline
+         \textbf{Acciones} &Clickar en la pestaña de incidencia acumulada. \\ \hline
+         \textbf{Postcondiciones}       &  Has accedido a la hoja de la incidencia acumulada. \\ \hline
+         \textbf{Excepciones}       & -  \\ \hline
+         \textbf{Importancia}   &Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-13 - Mostrar página de incidencia acumulada.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-14}     &  \textbf{Filtro comunidades} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.2, RF-4, RF-4.2, RF-5, RF-5.2, \\&RF-6, RF-6.2, RF-7, RF-7.2 \\ \hline
+         \textbf{Descripción}    & Permite al usuario filtrar la información que desea \\&visualizar en función de la comunidad autónoma. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a una hoja con este filtro. \\ \hline
+         \textbf{Acciones}      &  Modificar el filtro comunidades con el conjunto de\\& comunidades autónomas deseadas. \\ \hline
+         \textbf{Postcondiciones}       & Los gráficos de la hoja donde se ha modificado \\& el filtro cambia en función de esta modificación. \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Baja. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-14 - Filtro comunidades.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-15}     &  \textbf{Filtro provincia} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.3, RF-4, RF-4.3, RF-5, RF-5.3, RF-6, RF-6.3  \\ \hline
+         \textbf{Descripción}    & Permite al usuario filtrar la información que desea \\&visualizar en función de la provincia. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a una hoja con este filtro. \\ \hline
+         \textbf{Acciones}      & Modificar el filtro provincia con el conjunto de provincias\\& deseadas. \\ \hline
+         \textbf{Postcondiciones}       & Los gráficos de la hoja donde se ha modificado el filtro \\&cambian en función de esta modificación. \\ \hline
+         \textbf{Excepciones}       & -  \\ \hline
+         \textbf{Importancia}   & Baja. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-15 - Filtro provincia.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-16}     &  \textbf{Filtro grupo de edad} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.4, RF-4, RF-4.4  \\ \hline
+         \textbf{Descripción}    & Permite al usuario filtrar la información que desea \\&visualizar en función del grupo de edad. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a una hoja con este filtro. \\ \hline
+         \textbf{Acciones}      & Modificar el filtro grupo edad con el conjunto de\\& grupos de edades deseadas. \\ \hline
+         \textbf{Postcondiciones}       & Los gráficos de la hoja donde se ha modificado el \\&filtro cambian en función de esta modificación. \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   &Baja. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-16 - Filtro grupo de edad.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-17}     &  \textbf{Filtro sexo} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.5, RF-4, RF-4.5 \\ \hline
+         \textbf{Descripción}    & Permite al usuario filtrar la información que desea \\&visualizar en función del sexo. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a una hoja con este filtro.\\ \hline
+         \textbf{Acciones}      &Modificar el filtro sexo con el conjunto de sexos deseados.   \\ \hline
+         \textbf{Postcondiciones}       & Los gráficos de la hoja donde se ha modificado el filtro \\&cambian en función de esta modificación. \\ \hline
+         \textbf{Excepciones}       & -  \\ \hline
+         \textbf{Importancia}   &Baja. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-17 - Filtro sexo.}
+    \label{tab:my_label}
+\end{table}
+
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-18}     &  \textbf{Tarjeta de la fecha de incidencia acumulada} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.7 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar la fecha de la incidencia acumulada que \\&se está aplicando a los gráficos de la página, esta fecha va\\& en función del filtro fecha. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos el resultado de la fecha más actual de la tabla casos, aplicando antes el filtro de fecha.
+                 \item Se muestra en la tarjeta la fecha recogida en el paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   &Alta \\
+         \hline
+    \end{tabular}}
+    \caption{CU-18 - Tarjeta de la fecha de incidencia acumulada.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-19}     &  \textbf{Tarjeta de IA a 14 días cada 100.000 habitantes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.8  \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número de incidencia acumulada \\&de 14 días cada 100.000 habitantes en función del filtrado \\&aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.55\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada (la cual hemos descrito en el caso de uso anterior), y aplicando los filtros del a hoja de incidencia acumulada.
+                 \item Se recoge de la base de datos, la suma de la población de la tabla población, aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se realiza la división de la suma de casos calculada en el primer paso entre la suma de la población del segundo paso  y se multiplica por 100.000.
+                 \item Se muestra en la tarjeta el resultado del paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-19 - Tarjeta de IA a 14 días cada 100.000 habitantes.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-20}     &  \textbf{Tarjeta de IA a 14 días} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.9 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número de incidencia acumulada \\&de 14 días en función del filtrado aplicado. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.3\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada, y aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se muestra en la tarjeta el resultado del paso.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-20 - Tarjeta de IA a 14 días.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-21}     &  \textbf{Gráfico de IA a 14 días por sexo} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.10  \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de anillos con IA a 14 días \\&agrupada por sexo. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.3\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada, y aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se agrupa por sexo.
+                 \item Se muestra el grafico de anillos resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-21 - Gráfico de IA a 14 días por sexo.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-22}     &  \textbf{\makecell{ Gráfico de IA a 14 días y IA a 14 días cada \\100.000 habitantes por grupo de edad}} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.11 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de áreas con la IA a 14 días \\&y la IA a 14 días cada 100.000 habitantes agrupadas \\&por grupo de edad. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.8\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                  \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada, y aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada (la cual hemos descrito en el caso de uso anterior), y aplicando los filtros del a hoja de incidencia acumulada.
+                 \item Se recoge de la base de datos, la suma de la población de la tabla población, aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se realiza la división de la suma de casos calculada en el primer paso entre la suma de la población del segundo paso  y se multiplica por 100.000.
+                 \item Se agrupan por grupo de edad los datos surgidos del primer y el cuarto paso.
+                 \item Se muestra el grafico de áreas resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-22 - Gráfico de IA a 14 días y IA a 14 días cada
+100.000 habitantes por grupo de edad}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-23}     &  \textbf{\makecell{Pirámide poblacional de IA a 14 días cada \\ 100000 habitantes}} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.12 \\ \hline
+         \textbf{Descripción}    &  Debe mostrar una pirámide de población con la IA a \\&14 días cada 100.000 habitantes. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.5\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada (la cual hemos descrito en el caso de uso anterior), y aplicando los filtros del a hoja de incidencia acumulada.
+                 \item Se recoge de la base de datos, la suma de la población de la tabla población, aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se realiza la división de la suma de casos calculada en el primer paso entre la suma de la población del segundo paso  y se multiplica por 100.000.
+                 \item Se muestra la pirámide poblacional resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-23 - Pirámide poblacional de IA a 14 días cada 100000 habitantes.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-24}     &  \textbf{Pirámide poblacional de IA a 14 días} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.13 \\ \hline
+         \textbf{Descripción}    & Debe mostrar una pirámide de población con la IA a \\&14 días. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada, y aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se muestra la pirámide poblacional resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-24 - Pirámide poblacional de IA a 14 días.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-25}     &  \textbf{Mapa de IA a 14 días cada 100.000 habitantes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.14 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un mapa coroplético con IA a 14 días \\&cada 100.000 habitantes agrupada por provincias. \\ \hline   
+         \textbf{Precondiciones}      &  Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.6\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de inicidencia acumulada (la cual hemos descrito en el caso de uso anterior), y aplicando los filtros del a hoja de incidencia acumulada.
+                 \item Se recoge de la base de datos, la suma de la población de la tabla población, aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se realiza la división de la suma de casos calculada en el primer paso entre la suma de la población del segundo paso  y se multiplica por 100.000.
+                 \item Se divide por provincias.
+                 \item Se muestra el mapa coroplético resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-25 - Mapa de IA a 14 días cada 100.000 habitantes.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-26}     &  \textbf{Mapa de IA a 14 días} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-3, RF-3.15 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un mapa coroplético con IA a 14 días \\&agrupada por provincias. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja incidencia acumulada. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.3\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos de los últimos 14 días de la tabla casos, desde la fecha de incidencia acumulada, y aplicando los filtros de la hoja de incidencia acumulada.
+                 \item Se divide por provincias.
+                 \item Se muestra el mapa coroplético resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-26 - Mapa de IA a 14 días.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-27}     &  \textbf{Mostrar página de casos y muertes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la página que contiene \\&el análisis de los casos y muertes. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido al informe. \\ \hline
+         \textbf{Acciones}      & Clickar en la pestaña de casos y muertes. \\ \hline
+         \textbf{Postcondiciones}       & Has accedido a la hoja de casos y muertes. \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-27 - Mostrar página de casos y muertes.}
+    \label{tab:my_label}
+\end{table}
+
+
+
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-28}     &  \textbf{Tarjeta de los casos del último mes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.7 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número casos en el último mes en \\& función del filtrado aplicado, excepto el filtro fecha, ya \\& que cogerá un intervalo de 30 días desde la fecha de \\& actualización de la hoja. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos confirmados de la tabla casos, aplicando los filtros de la hoja casos y muertes, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha 30 días desde la fecha de actualización de la hoja.
+                 \item Se muestra en la tarjeta el resultado del paso.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-28 - Tarjeta de los casos del último mes.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-29}     &  \textbf{Tarjeta de las muertes del último mes} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.8 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número de muertes en el último \\& mes en función del filtrado aplicado, excepto el filtro \\& fecha, ya que cogerá un intervalo de 30 días desde la \\&fecha de \\&actualización de la hoja. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja casos y muertes, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha 30 días desde la fecha de actualización de la hoja.
+                 \item Se muestra en la tarjeta el resultado del paso.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-29 - Tarjeta de las muertes del último mes.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-30}     &  \textbf{Tarjeta de los casos de la última semana} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.9 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número casos en la última semana \\& en función del filtrado aplicado, excepto el filtro fecha,\\&  ya que cogerá un intervalo de 7 días desde la fecha de \\&actualización de la hoja. \\ \hline   
+         \textbf{Precondiciones}      &Haber accedido a la hoja de casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos confirmados de la tabla casos, aplicando los filtros de la hoja casos y muertes, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha 7 días desde la fecha de actualización de la hoja.
+                 \item Se muestra en la tarjeta el resultado del paso.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & -\\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-30 - Tarjeta de los casos de la última semana}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-31}     &  \textbf{Tarjeta de las muertes de la última semana} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.10 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar el número de muertes en la última \\& semana en función del filtrado aplicado, excepto el filtro  \\& fecha, ya que cogerá un intervalo de 7 días desde la fecha \\& de actualización de la hoja. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.25\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja casos y muertes, excepto el filtro fecha, el cual es ignorado y se pone por filtro de fecha 7 días desde la fecha de actualización de la hoja.
+                 \item Se muestra en la tarjeta el resultado del paso.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-31 - Tarjeta de las muertes de la última semana.}
+    \label{tab:my_label}
+\end{table}
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-32}     &  \textbf{Gráfico de muertes por grupo de edad} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.11 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un treemap con las muertes agrupados por \\&grupo de edad. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja casos y muertes.
+                 \item Se agrupan por grupo de edad.
+                 \item Se muestra el treemap resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-32 - Gráfico de muertes por grupo de edad.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-33}     &  \textbf{Gráfico de casos por grupo de edad} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.12 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un treemap con los casos agrupados por \\&grupo de edad. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos de la tabla casos, aplicando los filtros de la hoja casos y muertes.
+                 \item Se agrupan por grupo de edad.
+                 \item Se muestra el treemap resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-33 - Gráfico de casos por grupo de edad.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-34}     &  \textbf{\makecell{Gráfico de Evolución diaria de casos y muertes
+\\ acumulados}} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.13 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de líneas con la evolución diaria \\&de casos y muertes acumulados. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.5\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de los casos del día actual y todos los anteriores de la tabla casos, aplicando los filtros de la hoja de casos y muertes.
+                 \item Se recoge de la base de datos, siguiendo una función programada en DAX, la suma de las muertes del día actual y todos los anteriores de la tabla casos, aplicando los filtros de la hoja de casos y muertes. 
+                 \item Se muestra el grafico de líneas resultante con los datos calculados en los dos apartados anteriores distribuidos sobre el eje y que contiene las fechas en granularidad diaria.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-34 - Gráfico de Evolución diaria de casos y muertes
+acumulados.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-35}     &  \textbf{\makecell{Gráfico de casos y muertes cada 100.000 \\ habitantes por cumunidad}} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.14 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un gráfico de dispersión con los casos y \\&muertes cada 100.000 habitantes agrupados por \\& comunidad autónoma. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.8\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos confirmados de la tabla casos, aplicando los filtros de la hoja casos y muertes.
+                 \item Se recoge de la base de datos la suma de las muertes de la tabla casos, aplicando los filtros de la hoja casos y muertes.
+                 \item Se recoge de la base de datos, la suma de la población de la tabla población, aplicando los filtros de la hoja de casos y muertes.
+                 \item Se realiza la división de la suma de casos calculada en el primer paso entre la suma de la población del tercer paso.
+                 \item Se realiza la división de la suma de muertes calculada en el segundo paso entre la suma de la población del tercer paso  y se multiplica por 100.000.
+                 \item Se agrupan tanto los datos obtenidos en el cuarto paso, como en el quinto paso por comunidad autónoma.
+                 \item Se muestra el grafico de dispersión resultante con los datos calculados en el apartado anterior.                 
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-35 - Gráfico de casos y muertes cada 100.000 habitantes por comunidad.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-36}     &  \textbf{Gráfico de muertes por comunidad} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-4, RF-4.15 \\ \hline
+         \textbf{Descripción}    & Debe mostrar un mapa coroplético con las muertes \\&agrupadas por comunidades autónomas. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja casos y muertes. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos la suma de los casos de la tabla casos, aplicando los filtros de la hoja casos y muertes.
+                 \item Se agrupan por grupo de comunidad.
+                 \item Se muestra el mapa coroplético resultante.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-36 - Gráfico de muertes por comunidad.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-37}     &  \textbf{Mostrar página de ingresos y altas hospitalarias} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-5 \\ \hline
+         \textbf{Descripción}    & Permite al usuario visualizar la página que contiene el\\& análisis de los ingresos y altas hospitalarias. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido al informe. \\ \hline
+         \textbf{Acciones}      & Clickar en la pestaña de ingresos y altas hospitalarias.  \\ \hline
+         \textbf{Postcondiciones}       & Has accedido a la hoja de ingresos y altas hospitalarias. \\ \hline
+         \textbf{Excepciones}       & -  \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU37 - Mostrar página de ingresos y altas hospitalarias.}
+    \label{tab:my_label}
+\end{table}
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|l|}
+    \hline
+         \textbf{CU-38}     &  \textbf{Tarjeta de la fecha de nuevos ingresos en 7 días} \\ \hline
+         \textbf{Requisitos relacionados}       & RF-5, RF-5.5 \\ \hline
+         \textbf{Descripción}    & Debe proporcionar la fecha de nuevos ingresos en 7 días\\& que se está aplicando a los gráficos de la página, esta \\& fecha va en función del filtro fecha. \\ \hline   
+         \textbf{Precondiciones}      & Haber accedido a la hoja camas hospitalarias. \\ \hline
+         \textbf{Acciones}      &  \parbox[p][0.2\textwidth][c]{10cm}{
+            \begin{enumerate}\tightlist
+                 \item Se recoge de la base de datos el resultado de la fecha más actual de la tabla casos, aplicando antes el filtro de fecha.
+                 \item Se muestra en la tarjeta la fecha recogida en el paso anterior.
+            \end{enumerate}} \\ \hline
+         \textbf{Postcondiciones}       & - \\ \hline
+         \textbf{Excepciones}       & - \\ \hline
+         \textbf{Importancia}   & Alta. \\
+         \hline
+    \end{tabular}}
+    \caption{CU-38 - Tarjeta de la fecha de nuevos ingresos en 7 días.}
+    \label{tab:my_label}
+\end{table}
+
+

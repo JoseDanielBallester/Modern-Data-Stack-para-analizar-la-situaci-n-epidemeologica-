@@ -1,0 +1,378 @@
+\capitulo{3}{Conceptos teóricos}
+
+Apartado que sintetiza los conceptos teóricos del dominio de conocimiento del proyecto, necesarios para su comprensión y desarrollo.
+
+\section{Business Intelligence}
+El Business Intelligence (BI) o Inteligencia Empresarial \cite{BI} comprende las aplicaciones, las herramientas y las infraestructuras, así como el conjunto de desarrollos necesarios para obtener información conveniente para las empresas, mediante la conversión de datos, de forma que posibilita el análisis del funcionamiento de las empresas con el objetivo de progresar y potenciar las determinaciones y productividad de las mismas.
+
+Fundamentalmente la ventaja más importante que proporciona el Business Intelligence, es que posibilita la aportación de información beneficiosa a las empresas, de manera que facilita la identificación de los factores que impactan en los mercados y negocios, y por tanto, a su rendimiento.
+
+El Business Application Research Center (BARC) mediante la realización del BI Survey, aportó una lista que contiene los beneficios fundamentales aplicados a la inteligencia empresarial:
+\begin{itemize}
+    \item Preparar informes, examinar y organizar de forma más ágil y exacta.
+    \item Progresar en la toma de decisiones.
+    \item Aumentar la eficacia operativa.
+    \item Mejorar la satisfacción y respuesta tanto de los clientes como de los empleados.
+    \item Disminuir los costes.
+    \item Acrecentar los ingresos.
+    \item Producir estrategias más determinadas al futuro.
+    \item Adquirir datos de mayor calidad y obtener ventajas competitivas superiores.
+\end{itemize}
+
+La principal función de Business Intelligence, es la obtención de datos para su análisis, valoración de riesgos y toma de decisiones.
+
+Para ello, Business Intelligence dispone de herramientas de \emph{reporting (reporting tools)}.
+
+Las herramientas de \emph{reporting} se usan para la representación de la información manejada, de forma que se prensenta de una manera clara y sencilla. 
+
+El objetivo de estas herramientas es proporcionar, tanto la información deseada, como su análisis, puntualizando en los detalles requeridos por cada tipo de usuario. Así, los usuarios pueden obtener información eficiente representada mediante tablas, gráficos y cuadros, entre otras.
+
+\section{\emph{Data Warehouse}}
+Un \emph{Data Warehouse} \cite{Data_Warehouse} es una base de datos que proporciona el almacenamiento de datos procedentes de distintas fuentes, con el objetivo de incorporar y depurar la información para posteriormente ser analizada en base a diversos factores. Por ello, es una plataforma usada en los sistemas de Business Intelligence.
+
+Los Data Warehouse ejercen de repositorio central, ya que la información procede de distintas fuentes, como sistemas transaccionales u otras bases de datos vinculadas. 
+
+De esta forma, las empresas pueden disponer de una percepción de la totalidad de la información que se desea, afianzando las comprobaciones correspondientes.
+\newpage
+\section{KPI}
+Un KPI \cite{KPI} es un indicador clave de rendimiento o indicador clave de desempeño. Este indicador trata de mostrar las variables, factores y unidades de medida para producir análisis.
+
+Para el correcto funcionamiento, el indicador debe seguir una serie de propiedades:
+\begin{itemize}
+	\item Accesible. Los fines deben ser realistas y alcanzables. 
+	\item Evaluable. Un KPI debe poder ser evaluado.
+	\item Significativo. Se deben seleccionar los datos más relevantes.
+	\item Constante. El indicador debe ser sometido a análisis constantes. 
+	\item Preciso. Debe seleccionar información precisa.
+\end{itemize}
+\section{Data lake} 
+Un data lake \cite{data_lake} es un repositorio centralizado, que se encarga de almacenar, procesar y proteger grandes cantidades de datos estructurados, semiestructurados o sin estructurar. Este repositorio permite almacenar datos en su formato nativo y procesar cualquier tipo de datos, sin tener en cuenta los límites de dimensión.
+
+Un data lake ofrece una plataforma fiable de manera que facilita a las empresas realizar diversas funciones: transmitir cualquier dato desde cualquier sistema y a cualquier velocidad, además de almacenar cualquier tipo o volumen de datos.
+
+\section{\emph{Data Mart}}
+Un \emph{Data Mart} \cite{Data_Mart} es una versión característica de base de datos, dirigida en una sección o área de negocios en particular.
+
+Este almacén de datos es caracterizado por su distribución óptima, ya que permite el acceso a datos específicos de diversas áreas de forma simple, realizando el análisis de la información en función de distintos criterios.
+
+Para ello ejerce diversas labores, como:
+\begin{itemize}
+	\item La planificación y disposición de la información para su posterior examinación.
+	\item La realización de señalizadores clave de rendimiento (KPI).
+	\item La elaboración de los informes para una formación automática e instantánea.
+	\item La valoración de los datos, apreciando su ejecución de acuerdo a las finalidades del sector.
+\end{itemize}
+
+Además, los \emph{Data Marts} ofrecen una serie de beneficios y ventajas:
+\begin{itemize}
+	\item Agilidad y rapidez en la realización de consultas.
+	\item Disponibilidad de consultas simples SQL y/o MDX.
+	\item Comprobación inmediata de la información.
+	\item Manejo de volúmenes reducidos de datos.
+\end{itemize}
+
+\imagen{descarga}{Ejemplo Data Mart.}
+
+Para la creación del \emph{Data Mart}, se debe disponer de una organización válida para poder realizar el análisis de la información. Por lo tanto, se debe determinar la base de datos OLTP o OLAP a usar.
+
+
+\section{OLTP\emph{(Online Transactional Processing)}}
+El procesamiento de transacciones en línea, es un tipo de procesamiento que proporciona y coordina las aplicaciones transaccionales para el acceso de información , restablecimiento y tratamiento de transacciones. Así, los sistemas OLTP son bases de datos empleadas para el procedimiento de transacciones.
+
+Las transacciones producen procesos que deben ser comprobados y validados con un \emph{commit} o invalidados con un \emph{rollback}, en los que se incluyen diversas operaciones de inserción, modificación o borrado de datos.
+
+Las funciones que caracterizan estos sistemas son los siguientes:
+\begin{itemize}
+	\item En estos sistemas, la entrada a los datos está simplificada para aquellas operaciones reiteradas de lectura y escritura.
+	\item En función del nivel de aplicación, los datos se organizan de distintas maneras.
+	\item La representación de los datos no es siempre uniforme.
+	\item El historial de los datos se encuentra reducido a la muestra de la información vigente.
+	\item La información se restablece en tiempo real.
+	\item Ausencia de variación e inflexibilidad del esquema.
+	\item Elaboración de informes sencillos.
+	\item Grandes cantidades de datos de entrada.
+	\item La información se encuentra resumida de manera especifica.
+\end{itemize}
+
+\section{OLAP\emph{(Online Analytical Processing)}}
+El procesamiento analítico en línea, consiste en la interpretación de grandes volúmenes de datos, con el objetivo de obtener información relevante y realizar su análisis complejo.
+
+Las funciones que caracterizan estos sistemas son los siguientes:
+
+\begin{itemize}
+	\item La entrada de datos, suele ser sólo de lectura, de manera que la operación más usada es la de consulta, y en pocas ocasiones se realizan operaciones de inserción, actualización o borrado de datos.
+	\item La representación de los datos es uniforme.
+	\item Los datos se organizan en función de las distintas áreas.
+	\item Incluye un historial de la información a largo plazo, generalmente de dos a cinco años.
+	\item Representa los datos de forma resumida.
+	\item Realiza el análisis de grandes volúmenes de datos.
+	\item Ejerce la adjunción de datos.
+	\item Estas bases de datos tienden a obtener la información de los sistemas operacionales presentes, a través de procedimientos de extracción, transformación y carga (ETL). 
+\end{itemize}
+\subsection{Tabla de hechos}
+Una tabla de hechos \cite{tabla_hechos} es la tabla central de un esquema dimensional contenida tanto en los esquemas de estrella, como los esquemas de copo de nieve, en la que se almacenenan distintas medidas.
+
+Estas medidas se obtienen de la intersección de las dimensiones que la definen, procedentes de la tabla de dimensiones, y que están relacionadas con la tabla de hechos.
+
+\subsection{Tabla de dimensiones}
+La tabla de dimensiones \cite{tabla_dimensiones} contiene aquellos atributos usados para la restricción y agrupación de los datos pertenecientes a una tabla de hechos en la ejecución de las consultas de datos.
+
+Las tablas de dimensiones facilitan información sobre los datos de la tabla de hechos mediante un análisis. Por tanto, las tablas de dimensiones son las que disponen de los metadatos de los hechos. Y las tablas de hechos son las que contiene dichos datos.
+\subsection{Modelo estrella}
+El modelo estrella \cite{Estrella} es un tipo de esquema de base de datos racional, compuesto por una sola tabla de hechos central, envuelta por varias tablas de dimensiones.
+
+Las diferentes ramificaciones que realizan la conexión con las tablas, señalan la relación de muchos a uno, entre la tabla de hechos y las distintas tablas de dimensiones.
+
+Por ello, se trata de una estructura más sencilla al contener solo una única tabla de hechos central, que dispone de los datos requeridos para el análisis, junto con sus múltiples conexiones a varias tablas de dimensión. 
+
+De esta forma todos los datos vinculados están incluidos en una única tabla, y solamente esa tabla mantiene relación con otras tablas.
+
+\imagen{Modelo_estrella}{Ejemplo de modelo estrella.}
+
+Al tratarse de un esquema de estructura sencilla, permite el acceso a los datos de manera rápida, ya que posibilita la aplicación de una base de datos multidimensional, a través del uso de una base de datos relacional.
+
+Este modelo, al vincular solamente la tabla de hechos con las tablas de dimensiones,  implica que las operaciones de lectura de la información de la base de datos sea más rápida.
+
+Por lo tanto, el modelo estrella resulta más sencillo que el modelo de copo de nieve.
+
+\subsection{Modelo copo de nieve}
+El modelo copo de nieve \cite{Copo_nieve} es un tipo de esquema de base de datos, en el que una tabla de hechos está vinculada a muchas tablas de dimensiones, que pueden estar vinculadas a otras tablas de dimensiones, mediante una relación de muchos a uno.
+
+Además, cada tabla de dimensión interpreta un nivel de clasificación.
+
+Normalmente, las diversas tablas de un modelo de copo de nieve se encuentran normalizadas en el tercer formulario de normalización.
+
+Así, el modelo de copo de nieve puede estar compuesto por diversas tablas de dimensiones y cada tabla tabla de dimension puede estar compuesta también por varios niveles.
+
+\imagen{Modelo_copo_nieve}{Ejemplo de modelo copo de nieve.}
+
+Por lo tanto, este modelo trata de vincular tanto la tabla de hechos, como de vincular las tablas de dimensiones entre otras tablas, sin tener conexión con la tabla de hechos, de forma que la tablas de dimensiones puedan estar divididas en otras subtablas.
+
+En el modelo de copo de nieve, al disponer de más relaciones entre tablas, provoca que la consulta de datos sea más complicada.
+\newpage
+\section{Diferencias entre OLTP y OLAP}
+
+A continuación, se incluye una tabla que contiene las principales diferencias entre OLTP y OLAP \cite{Diferencias_OLTP_OLAP} :
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{13cm}{!} {
+    \begin{tabular}{l c c}
+    
+         \textbf{}    &\textbf{OLTP} &  \textbf{OLAP} \\ \hline
+         \textit{Definición} &\parbox[p][0.1\textwidth][c]{5cm}{Sistema transaccional en línea que administra los cambios de la base de datos.}      & \parbox[p][0.1\textwidth][c]{5cm}{Sistema de restauración y análisis de datos en línea.} \\ 
+         \textit{Función} &\parbox[p][0.1\textwidth][c]{5cm}{Insercción, actualización, y borrado de datos.}      & \parbox[p][0.1\textwidth][c]{5cm}{Extracción de datos para su análisis.} \\ 
+         \textit{Tipo de usuario} &\parbox[p][0.1\textwidth][c]{5cm}{Operacional.}      & \parbox[p][0.1\textwidth][c]{5cm}{Analista} \\ 
+         \textit{Transacción} &\parbox[p][0.1\textwidth][c]{5cm}{Transacciones cortas.}      & \parbox[p][0.1\textwidth][c]{5cm}{Transacciones largas.} \\ 
+         \textit{Tiempo} &\parbox[p][0.1\textwidth][c]{5cm}{Tiempo de procesamiento de transacción menor.}      & \parbox[p][0.1\textwidth][c]{5cm}{Tiempo de procesamiento de transacción mayor.} \\ 
+         \textit{Modelo de datos} &\parbox[p][0.1\textwidth][c]{5cm}{Relacional.}      & \parbox[p][0.1\textwidth][c]{5cm}{Multidimensional.} \\ 
+         \textit{Consultas} &\parbox[p][0.1\textwidth][c]{5cm}{Consultas sencillas.}      & \parbox[p][0.1\textwidth][c]{5cm}{Consultas complejas.} \\
+         \textit{Normalización} &\parbox[p][0.1\textwidth][c]{5cm}{Tablas normalizadas (3NF).}      & \parbox[p][0.1\textwidth][c]{5cm}{Tablas no normalizadas.} \\
+         \textit{Integridad} &\parbox[p][0.1\textwidth][c]{5cm}{Limitación de integridad.}      & \parbox[p][0.1\textwidth][c]{5cm}{Integridad no afectada.} \\
+        
+    \end{tabular}}
+    \caption{Diferencias entre OLTP y OLAP.}
+    \label{tab:my_label}
+\end{table}
+Por lo tanto, las principales ventajas por las que se caracteriza OLAP son las siguientes:
+
+\begin{itemize}
+	\item Rapidez de la ejecución de las consultas.
+	\item Disponibilidad de datos para realizar consultas.
+	\item Reducción de tiempo en cáculos y elaboración de informes.
+	\item Reducción de tiempo en el procesamiento de consultas de usuario.
+\end{itemize}
+
+Los análisis que se hacen en reporting son complicados con los sistemas transaccionales tradicionales (OLTP), porque la información está dispersa en muchas tablas y no están dirigidas al análisis. 
+
+Debido a estos problemas, se introdujeron el uso de Business Intelligence y los sistemas analíticos (OLAP), donde la información se integra en un repositorio optimizado para responder preguntas estratégicas.
+
+\section{ETL}
+Los procesos ETL (\emph{Extract, Transform and Loading}) \cite{ETL} consisten en la extracción, transformación y carga de datos, de manera que siguen tres fases:
+\begin{itemize}
+	\item Extracción: obtención, análisis, interpretación y translado de datos desde diferentes fuentes internas y externas.
+	\item Transformación: filtrado, depuración y agrupación de datos.
+	\item Carga: carga y actualización de datos en otras bases de datos, data mart, o data warehouse, entre otros sistemas.
+	
+\imagen{etl}{Ejemplo proceso ETL.}
+
+\end{itemize}
+Así, mediante estos procesos se alcanza la consistencia entre las apliaciones y los sistemas.
+
+
+
+\section{\emph{Modern Data Stack}}
+Los Modern Data Stack \cite{Modern_Data_Stack}toman ventaja de los data warehouses en la nube, ya que traen mejoras en seguridad y elasticidad, y principalmente en la el almacenamiento y procesamiento de grandes volúmenes de datos a gran velocidad y un coste muy bajo.
+
+Los data warehouses solían ser un gran cuello de botella. Se usaba principalmente bases de datos relacionales basadas en filas como sus data warehouses, lo que no se adaptaba bien a las cargas de trabajo de análisis de datos, ya que distribuye los datos relacionados en varios discos o servidores. Incluso con tecnologías como Hadoop tardaban horas en ejecutarse y eran muy complicados de escribir y mantener. 
+
+Además, debido al limitado poder de procesado de las antiguas data warehouses los ingenieros de datos solían hacer el trabajo de transformación antes de cargar los datos, lo que dio lugar al término ETL (\emph{Extract-Transform-Load}).
+
+Ahora, con el avance de los data warehouse en la nube, gracias a su alto rendimiento, los ingenieros de datos pueden ejecutar consultas a escala de petabytes en minutos. 
+
+Con un \emph{Modern Data Stack}, se pueden cargar los datos en el data warehouse en minutos y la transformación de datos se puede manejar de manera mucho más efectiva allí que en alguna capa de procesamiento externa (ELT, \emph{Extract-Load-Transform}).
+
+Los princiapes beneficios de un Modern Data Stack por lo tanto son:
+
+\begin{itemize}
+	\item Modularidad: debido a que los Modern Data Stack consisten en varias tecnologías con puntos de conexión general, se pueden cambiar partes del stack a medida que las necesidades cambian, lo que ayuda a evitar el vendor lock-in.
+	\item Velocidad: debido a los límites de procesamiento de las antiguas data warehouses, las pipelines podían llegar a tardar horas en ejecutarse, pero ahora con el Modern Data Stack y sus recursos de cómputo elásticos, ese trabajo puede hacerse en minutos.
+	\item Coste: los costes de la tecnología en la nube son normalmente significativamente más baratos que su contraparte on-premise. Un data warehouse antiguo tendría que pagar por un servidor todo el tiempo, aparte de ser costoso y disponer de dificultades en su escalabilidad, al contrario que con un data warehouse en la nube, donde solo pagas por lo que usas y puedes escalar para cargas de trabajo masivas cuando sea necesario.
+\end{itemize}
+
+\section{ELT}
+Los procesos ELT (\emph{Extract, load and transform}) \cite{ELT} consisten en la extracción, carga y transformación de datos. 
+
+De manera que se diferencian de los procesos ETL en que los datos no se transforman al obtener los datos, sino que se guardan antes de ser procesados, es decir son almacenados en su formato inicial.
+
+Esta nueva perspectiva esta compuesta por:
+
+\subsection{Modern ingestion}
+La ingestión de datos \cite{Modern} comprende las fases de extracción de datos desde la fuente y la carga de estos mismo en el destino, la E y L del proceso ETL.
+
+\subsection{Modern Storage}
+El almacenamiento de datos \cite{Modern} se realiza mediante almacenes de datos en la nube, entre los que se incluyen \emph{Snowflake}.
+
+Actualmente, estos almacenes de datos modernos, presentan una serie de mejoras respecto a los anteriores, ya que permiten la ausencia de configuraciones de \emph{hardware}, y se caracterizan por su disponibilidad, rapidez y menor coste.
+
+\subsection{Modern transformation}
+La transformación moderna de datos \cite{Modern} convierten, limpian y agregan los datos entre otras funciones. Y todas estas acciones se realizan directamente sobre el data warehouse analítico.
+
+\section{Diferencias entre ETL Y ELT}
+
+A pesar de que hay diferencias entre ETL y ELT, ambos cumplen con el mismo ojetivo, tener unos datos listos para el análisis y toma de decisioes,
+
+Implementar un proceso ETL es más complejo, ya que requiere más esfuerzo en el diseño y ejecución, pero puede ofrecer más beneficios a largo plazo ya que es más económico y requiere menos recursos y tiempo.
+
+A continuación, se incluye una tabla que contiene las principales diferencias entre los procesos ETL y ELT \cite{ETL_ELT_t} :
+\newpage
+\begin{table}[ht!]
+    \centering
+    \resizebox{13cm}{!} {
+    \begin{tabular}{l c c}
+         \textbf{}    &\textbf{ETL} &  \textbf{ELT} \\ \hline
+         \textit{Orden de los procesos} &\parbox[p][0.2\textwidth][c]{5cm}{Los datos se transforman antes de ser cargados en el sistema receptor.}      & \parbox[p][0.2\textwidth][c]{5cm}{Los datos se extraen y se cargan en el sistema receptor sin ser transformados. Estos datos son transformados en el sistema de destino.} \\ 
+         \textit{Enfoque} &\parbox[p][0.2\textwidth][c]{5cm}{Variación de datos, encubrimiento de datos, normalización, y unión entre tablas.}      & \parbox[p][0.2\textwidth][c]{5cm}{Carga en almacenamiento de datos. División de la carga de transformación y realización de las transformaciones en los almacenes.} \\
+         \textit{Privacidad} &\parbox[p][0.2\textwidth][c]{5cm}{La información reservada se puede registrar antes de su carga en el sistema receptor.}      & \parbox[p][0.2\textwidth][c]{5cm}{Los datos se cargan sin un previo procesamiento. El proceso de encubrimiento se realiza en el sistema receptor.} \\ 
+         \textit{Mantenimiento} &\parbox[p][0.2\textwidth][c]{5cm}{Los procesos de transformación y administración de las modificaciones de datos pueden exigir más gastos.}      & \parbox[p][0.2\textwidth][c]{5cm}{Mantenimiento acometido en el almacén de datos en el que se producen las transformaciones.} \\ 
+         \textit{Latencia} &\parbox[p][0.1\textwidth][c]{5cm}{Generalmente latencia más alta.}      & \parbox[p][0.1\textwidth][c]{5cm}{Generalmente latencia más baja.} \\ 
+         \textit{Flexibilidad de datos} &\parbox[p][0.1\textwidth][c]{5cm}{Reglas y lógica personalizada.}      & \parbox[p][0.1\textwidth][c]{5cm}{Soluciones generalizadas.} \\
+         \textit{Flexibilidad de análisis} &\parbox[p][0.1\textwidth][c]{5cm}{Tanto los casos de uso como los modelos de informen deben ser establecidos previamente.}      & \parbox[p][0.2\textwidth][c]{5cm}{Los datos pueden ser añadidos en cualquier momento.} \\
+         \textit{Escala de datos} &\parbox[p][0.2\textwidth][c]{5cm}{Sin sistemas de procesamiento distribuidos y escalables puede ocurrir un cuello de botella por ETL.}      & \parbox[p][0.2\textwidth][c]{5cm}{Más escalable, con menor procesamiento.} \\
+
+    \end{tabular}}
+    \caption{Diferencias entre ETL y ELT.}
+    \label{tab:my_label}
+\end{table}
+
+\section{Analytics engineers}
+Los analytics engineers\cite{Analytics_engineering} aportan datos limpios a los usuarios finales, modelan los datos de forma que empoderan a los usuarios para contestar sus propias preguntas. Para ello dedican su tiempo a transformar, testear, desplegar y documentar datos, aplicando las mejores prácticas de la ingeniería del software como control de versiones e integración continua a la base de código. A continuación, se va a analizar la tendencia del mercado que hace que esté en alza este nuevo rol en los equipos de datos modernos.
+
+\subsection{El equipo de datos tradicional}
+
+Para entender bien, como surgió este rol, tenemos que retrotraernos al equipo de datos tradicional, donde había un ingeniero de datos, el cual se encargaba de la extracción de datos de la base de datos, y posteriormente su transformación y carga en el almacén de datos respectivo. 
+
+También se podía encontrar el analista de datos encargado de la creación de los informes de los datos.
+
+Con el tiempo surgieron múltiples cambios en el ámbito de las herramientas de datos, entre los que se incluyen:
+
+\begin{itemize}
+	\item Los almacenes de datos en la nube.
+	\item Los servicos de data pipelines.
+	\item Las herramientas de inteligencia empresarial.
+\end{itemize}
+
+Debido a estos cambios y evoluciones en las herramientas de datos, también surgieron cambios en los puestos que se ocupan de estas herramientas.
+
+\subsection{El equipo de datos moderno}
+
+Hoy en día dentro de un equipo de datos moderno, lo primero que se quiere contratar es una persona que domine todo el data stack, una persona que sea capaz de configurar una herramienta de ingestión de datos, mantener un data warehouse limpio, escribir transformaciones complejas y hacer reporting sobre unos datos limpios. 
+
+Este rol no es ni un ingeniero de datos, ni un analista de datos, sino algo intermedio, lo que denominamos analytics engineer, el cual está encargado de facilitar los datos definidos, transformados, testeados, documentados, y revisados.
+\newpage
+Actualmente, se pueden distinguir tres cargos:
+
+\begin{itemize}
+	\item Ingeniero de datos.
+	\item Ingeniero de análisis.
+	\item Analista de datos.
+\end{itemize}
+
+Una vez el equipo de datos empieza a crecer, se contratan a ingenieros de datos y analistas de datos, que se podrán están más especializados en unas tareas más concretas que en el equipo de datos tradicional, aunque a veces las líneas entre los roles pueden no estar claras ya que un analytics engineer puede hacer gran parte del trabajo de un ingeniero de datos y de un analista de datos.
+
+A continuación, se incluye una tabla que contiene las principales tareas de los 3 cargos :
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{13cm}{!} {
+    \begin{tabular}{c c c c}
+          \textbf{} & \textbf{Ingeniero de datos} & \textbf{ Analytics engineer} &  \textbf{Analista de datos.}\\ \hline
+        
+         &\parbox[p][0.2\textwidth][c]{5cm}{Integraciones de datos personalizadas}  
+         &\parbox[p][0.2\textwidth][c]{5cm}{Proporcionar datos depurados y transformados preparados para el análisis} 
+         &\parbox[p][0.2\textwidth][c]{5cm}{Deep insights} \\ 
+        
+         &\parbox[p][0.2\textwidth][c]{5cm}{Administrar pipelines}
+         &\parbox[p][0.2\textwidth][c]{5cm}{Aplicar las mejores prácticas de ingeniería de software al código} 
+         &\parbox[p][0.2\textwidth][c]{5cm}{Trabajar con usuarios comerciales para entender los requisitos de datos} \\ 
+         
+         
+         &\parbox[p][0.2\textwidth][c]{5cm}{Implementar endpoints de aprendizaje automático}  
+         &\parbox[p][0.2\textwidth][c]{5cm}{Proporcionar la documentación y las definiciones de los datos}
+         &\parbox[p][0.2\textwidth][c]{5cm}{Elaborar cuadros de mando} \\ 
+         
+         &\parbox[p][0.2\textwidth][c]{5cm}{Producción y mantenimiento de la plataforma de datos}  
+         &\parbox[p][0.2\textwidth][c]{5cm}{Enseñar a los usuarios comerciales cómo emplear las herramientas de visualización de datos} 
+         &\parbox[p][0.2\textwidth][c]{5cm}{Forecasting} \\ 
+         
+         &\parbox[p][0.2\textwidth][c]{5cm}{Optimización del rendimiento del almacenamiento de datos}  
+         &\parbox[p][0.2\textwidth][c]{5cm}{} 
+         &\parbox[p][0.2\textwidth][c]{5cm}{} \\ 
+         
+    \end{tabular}}
+    \caption{Equipo de datos moderno.}
+    \label{tab:my_label}
+\end{table}
+
+
+\subsection{Técnicas de la ingenieria del sofware que aplican los analytics engineers}
+
+Tristan Handy \cite{Analytics} expuso una serie de métodos que los analytics engineers utilizan, que son propios de ingenieros del software, que antes de la aparición de este rol no se utilizaban en los equipos de datos tradicionales:
+
+\begin{enumerate}
+	\item Control de versiones del código: 
+	
+	\begin{itemize}
+    	\item Anteriormente, los diferentes cargos como, los analistas e ingenieros de datos, guardaban sus cometidos en sus equipos personales o, en ocasiones disponían de un repositorio en el que podían almacenar sus cambios. Cuando se producía un cambio de código que interrumpía su correcto funcionamiento, surgía un gran problema ya que no sabían de dónde procedía el fallo.
+    	\item Por ello, actualmente, los distintos cargos realizan sus códigos de análisis en repositorios \emph{git} compartidos. De esta forma, colaboran de manera que realizan las revisiones de código pertinentes, antes de compartirlo con los demás cargos.
+    \end{itemize}
+
+	\item Código con garantía de calidad.
+	
+	\begin{itemize}
+    	\item Anteriormente, no se disponía de pruebas en las transformaciones de datos.
+    	\item Por ello, hoy en día, los equipos disponen de tests en las transformaciones de datos, de forma que se identifican los errores antes de que se comparta el resultado. 
+    \end{itemize}
+	
+	\item Código modular.
+	
+	\begin{itemize}
+    	\item Anteriormente, los informes contenían las mismas consultas y repodrucían las mismas fórmulas.
+    	\item Actualmente, los distintos cargos cooperan mediante el uso de una base de código unificada, de forma que unos cargos pueden utilizar el trabajo de otros, optimizando su tiempo.
+    \end{itemize}	
+	
+	\item Uso de entornos.
+
+	\begin{itemize}
+    	\item Anteriormente, no se utilizaban entornos de desarrollos en los que se realizaban las pruebas correspondientes antes de la producción, sino que se probaba en el momento de la producción.
+    	\item Actualmente, los equipos disponen de software que prueban y revisan las modificaciones, pudiendo ver los cambios producidos antes de la producción.
+    \end{itemize}
+	
+	\item Código diseñado para la mantenibilidad.
+
+	\begin{itemize}
+    	\item Anteriormente, mayoritariamente la actualización de nuevos datos producían el borrado de los modelos de datos ya existentes.
+    	\item Por ello, actualmente, debido al modelado de datos modular los equipos ofrecen la seguridad pertinente para que no se produzcan cambios indeseados en los datos de origen, de manera que solo se produzcan las actualizaciones de los nuevos cambios.
+    \end{itemize}
+	
+\end{enumerate}

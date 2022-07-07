@@ -1,0 +1,147 @@
+\capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
+
+Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto.
+Incluye la exposición del ciclo de vida utilizado, y los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
+
+\section{Inicio del proyecto}
+
+El tema del proyecto surgió gracias a una charla que asistí en mi trabajo. En ella hablaron sobre un nuevo paradigma, a la hora de montar la arquitectura que da soporte al ciclo de vida de los datos, el Modern Data Stack, y de cómo las empresas españolas están empezando a cambiar su antigua arquitectura on premise, por esta nueva en la nube, gracias a las varias ventajas que conlleva su implementación.
+
+Como no había tenido todavía la oportunidad de trabajar en un proyecto que utilizase estas nuevas tecnologías me pareció una buena idea aprender a usarlas, ya que me parecen interesantes y útiles de cara al futuro.
+
+Por esas fechas, a principios de este año 2022, estábamos batiendo récords de incidencia de contagios, por lo tanto, pensé que podría ser muy útil tener un cuadro de mandos donde se tengan centralizados los datos más importantes sobre la pandemia, de forma que se pueda acceder de forma fácil e interactuar con los datos.
+
+Juntando ambos factores, decidí que iba a montar una arquitectura para el ciclo de vida de los datos del COVID-19, utilizando este nuevo paradigma, el Modern Data Stack. Ya que se trata de un tema de actualidad de gran interés social, y de una tecnología en pleno auge, que es presente y futuro de las arquitecturas de datos.
+
+\section{Metodologías}
+
+Con respecto a la gestión del proyecto se ha utilizado una metodología ágil, precisamente
+SCRUM, sobre la cual se trabajó en la asignatura gestión de proyectos. Aunque por razones obvias, como que esta metodología de trabajo se aplica para trabajo en equipo, y este trabajo ha sido desarrollado por una sola persona, no se ha podido aplicar por completo, pero si se ha intentado aplicar la filosofía ágil, dentro de los posible.
+
+La división del desarrollo estaba marcada por sprints, estimando mediante Story points la carga de trabajo de cada uno de ellos, la mayoría de ellos han tenido una duración de una semana, excepto el primero y el último, cuya duración ha sido de solo 1 semana. Para llevar a cabo está gestión se ha hecho uso de una herramienta llamada Zenhub, ya que gracias a ella se ha podido usar un tablero canvas para estimar y priorizar las tareas.
+
+Para dar finalizado el sprint, se realizaban las siguientes tareas:
+
+\begin{itemize}\tightlist
+    \item Revisión del sprint: en esta tarea se revisaban las distintas tareas correspondiente a cada sprint y se miraba si se habían completado los objetivos del sprint. También se analizaban los problemas que ha surgido, para aprender de ellos y que no supongan inconvenientes en los próximos sprints.
+    
+    \item Planificación siguiente sprint: posteriormente, y una vez finalizada la revisión del sprint, se planifica el sprint que va a continuación, se marcan las tareas y objetivos de éste y mediante los story points previamente mencionados se hace la estimación del esfuerzo que va a conllevar cada tarea.
+    
+\end{itemize}
+
+\section{Formación}
+
+Para la realización del proyecto se ha necesitado la investigación sobre varias herramientas de las cuales no tenía conocimiento. A continuación, se va a dar una breve explicación sobre cada una de ellas.
+
+\subsubsection{Snowflake}
+
+Para el almacenamiento de los datos se ha utilizado Snowflake, un data warehouse analítico en la nube.
+
+Para aprender a usarlo, se ha realizado un curso estimado en unas 10 horas, que ofrece de manera gratuita el propio Snowflake, con el que aprendes a usar las principales características de Snowflake, en el cual recibes una insignia tras finalizarlo.
+
+\subsubsection{dbt}
+
+Para la transformación de datos se ha utilizado dbt, una herramienta que permite transformar los datos en sus datawarehouses de forma eficaz.
+
+Al igual que en el apartado anterior, se han realizado varios cursos que ofrece de forma gratuita la propia herramienta, uno con los fundamentos principales, de duración de 5 horas que al finalizar te da una insignia, y también varios cursillos más avanzados, de duración total de 10 horas entre todos.
+
+\subsubsection{PowerBI}
+
+Para realizar el cuadro de mandos y los gráficos, que es lo que verá el usuario se ha utilizado PowerBI.
+
+Yo ya había trabajado con otra herramienta de visualización de datos, pero como nunca había trabajado con PowerBI, tuve que estudiarme su documentación y leer varios artículos para aprenderme sus características únicas y poder usarla sin problemas.
+
+\section{Analisis}
+
+La primera etapa, consistió en un análisis de los requisitos del proyecto, que, en este caso, al ser un proyecto centrado en los datos y su análisis, coincide con los KPI que queremos medir.
+
+Una vez tenía los KPI, tuve que buscar los datos necesarios para calcular los KPI en los datos abiertos que ponen a disposición las distintas instituciones del estado. Tuve que descartar algún KPI, como la incidencia acumulada en 14 días en las residencias, ya que no había datos con granularidad diaria, y tuve que conformarme con unos de granularidad semanal, donde los cálculos serían más limitados. También tuve que descartar otros KPI, como el número de contagios dependiendo del ámbito (social, familiar, laboral, centro educativo, etc.), porque no encontré en los datos abiertos información sobre ellos.
+
+\section{Diseño}
+
+Una parte importante del trabajo fue el diseño, en concreto el modelado de los datos. Sabiendo que se trata de un proyecto de analítica de datos, tuve bastante claro desde un principio, que iba a usar la tecnología OLAP ya que es mucho más rápida que su contraposición OLTP, a la hora de ejecutar secuencias SQL de tipo SELECT, y que iba a usar la metodología kimball para el diseño del data warehouse, aplicando un modelado en estrella, utilizando este modelado en vez de uno de copo de nieve. Ya que este, al estar más normalizado, aunque disminuye lo que ocupa el almacenamiento, aumenta el número de joins que se tiene que hacer en las consultas y por ello, el tiempo de respuesta.
+
+Así que el siguiente paso, fue realizar el modelado de datos, siguiendo las reglas previamente mencionadas. Teniendo en mente los KPI que queríamos calcular,  y debido a que estos se dividían en 3 grandes grupos (casos, hospitales, residencias), se realizó un modelado por separado de ellos, aunque luego en PowerBI se juntará todo en el mismo modelo sin problema, a través de sus tablas comunes. Para cada una de estas divisiones se realizó un modelo conceptual, lógico y físico.
+
+Esta ha sido una de las partes más demandantes del proyecto, ya que a diferencia del modelado en tercera forma normal de las bases de datos convencionales, dónde se busca optimizar el almacenamiento y se prohíbe cualquier redundancia en los datos, cuando diseñas una data warehouse tienes que encontrar un balance entre optimizar el almacenamiento, no desnormalizando excesivamente las tablas, y el tiempo de respuesta de las consultas, aunque ahora gracias a las data warehouse en la nube, va perdiendo importancia la optimización de almacenamiento.
+
+\subsection{Resolución de problemas}
+
+Hubo varios problemas debidos a la complejidad de los modelos, ya que había tablas con diferente granularidad que se necesitaban en el cálculo de un mismo KPI (Para calcular la IA a 14 días cada 100.000 habitantes, se necesitaban la tabla de casos a nivel diario, y la tabla de población que viene a nivel anual), tablas con distinta granularidad que se relacionaban con la misma dimensión (la tabla de casos se relacionaba con la dimensión calendario con granularidad diaria, la tabla de población se necesitaba relacionar con la dimensión de calendario con granularidad anual, y la tabla de residencias que también se necesitaba relacionar con la dimensión calendario con granularidad semanal), y según donde mirases había partidarios de aplicar distintos tipos de soluciones. Por lo tanto, dediqué bastante tiempo diseñando el modelo de datos, ya que se me ocurrían varias posibilidades y no estaba seguro de cual era mejor para mi caso.
+
+Para resolver los problemas de granularidad opté por distintas soluciones dependiendo de la situación. La solución fácil para los problemas de granularidad, es agregar los datos hasta llegar al nivel mínimo de granularidad que tienen estás tablas que se relacionan entre sí. En el caso que he comentado en el párrafo anterior relacionado con la dimensión calendario, sería a nivel de año, pero así perdiríamos mucho poder de análisis, y en casos como el mío, donde tenemos menos de 3 años de datos no tiene ningún sentido. Otra solución que se suele plantear, es que se cree una tabla para cada granularidad necesitada, en este caso, una tabla de calendario con granularidad en años, otra en semanas y otra en días. Esta solución tiene el inconveniente de que repite datos, por lo que aumenta, lo que ocupa el almacenamiento de los mismos, pero podría ser una solución viable en nuestro caso de la tabla de residencias, que tiene granularidad semanal.
+
+No obstante, para la tabla de residencias opté por otra solución que me parece igual de buena, pero sin el inconveniente de repetir datos y lo que esto conlleva. La solución fue crear una fecha ficticia para semana, que contenía el primer día de esa semana en la tabla de residencias. Ahora tenemos dos tablas con la misma granularidad que podemos relacionar sin problemas, y como la tabla residencias no va a realizar ningún calculo en días, ni va a estar relacionada en ningún KPI con otra tabla de hechos con granularidad de días (esto sí pasa con la tabla de población), está fecha ficticia va a estar oculta para el usuario y no va a provocar ningún problema en los cálculos. Este tipo de solución se aplicará también en esta tabla de residencias con respecto a la dimensión de provincias, ya que el resto de las tablas se relacionan con granularidad de provincia, pero la tabla residencias tiene granularidad de comunidad autónoma. Al igual que se creó una fecha ficticia para residencias, se va a crear una provincia ficticia que va a representar la comunidad autónoma, que en este caso será la capital, y ella será la que relacione la tabla con la dimensión provincias.
+
+Pero esta solución que hemos dado para provincias, no sirve para resolver el problema de granularidad de población, ya que en este caso al compartir KPI con tablas que tienen granularidad de día, como la de casos, cuando filtremos un día especifico y queramos saber la IA a 14 días cada 100.000 habitantes, si seleccionamos por ejemplo el 5 de mayo, y tenemos asignada la fecha ficticia de población de cada año, al 1 de enero, cuando vaya a calcular la población para el cálculo de ese KPI lo dividirá por 0 y dará un cálculo erróneo. Tampoco podemos utilizar la posible solución que comenté antes de hacer una tabla calendario para la granularidad de año, ya que entonces necesitaríamos duplicar los filtros en el cuadro de mandos, porque tenemos KPIs que utilizan ambas tablas, y por ellos necesitamos que tengan el mismo filtrado. 
+
+Por tanto, la única solución viable que encontré, fue que la dimensión calendario tuviera un campo año y que se relacionase con él la tabla población. En primera instancia esto no parece recomendable (ya que se salta dos recomendaciones típicas de modelado, como que no hay que unir tablas con distintas granularidad, o que hay que evitar las relaciones muchos a muchos entre una dimensión y una tabla de hechos) porque puede provocar resultados inesperados. Pero en nuestro caso es la mejor solución,  lo que va a ocasionar es que cuando se filtre por un día del año, va a devolver el valor de ese año para todos los días de ese año, y en este caso, es justo lo que queremos, al tener datos anuales de la población, debido a que la población de 2022 es la que necesitamos en cualquier día de ese año. Un resultado inesperado podría darse en otros casos, por ejemplo, cuando tienes las ventas de un año, ahí no quieres que las ventas de un día sean las correspondientes al año completo, que es el sumatorio de las ventas de los días de un año , cosa que no pasa en nuestro caso con la población.
+
+El mayor contratiempo del desarrollo de este proyecto se dio por un fallo en el modelado de datos, ya que se trató la población como una dimensión, que contenía los campos de grupo de edad, género, provincia y año, todos comunes con la tabla de hecho de casos (menos el campo año, pero que si estaba contenido en el campo fecha de la tabla casos), y se relacionó ambas tablas entre si mediante un campo compuesto por esos campos. Lo realicé de esa forma en un principio, porque no me parecía que población fuese una tabla de hechos, ya que su información, no era de ninguna utilidad para mis análisis si no iba de la mano de la tabla de casos.
+
+Pero más tarde en el desarrollo, me di cuenta de este error, porque que cuando realizaba filtros muy restrictivos, los cálculos empezaban a ser imprecisos en los KPI que utilizaban ambas tabla. Esto se debía, a que ambas tablas se estaban filtrando entre sí en situaciones no deseadas, por ejemplo si restringías el cálculo a un día en concreto, el cálculo de la IA a 14 días cada 100.000 habitantes se realizaba solo sobre la porción población que había tenido al menos un caso ese día, cuando el cálculo debía realizarse sobre todo el conjunto de la población que cumpliese las condiciones filtrado, independientemente de si esa fracción de población tenía algún caso en la tabla de casos, o no. Del modo que estaba diseñado el modelo de datos, no se podía evitar este problema, ya que se necesitaba que la tabla de población filtrase el grupo de edad y genero para la tabla de casos y que la tabla casos, filtrase a través de la dimensión calendario y provincia, a la tabla de población.
+
+Entonces tuve que cambiar el modelado, hice que la población fuese otra tabla de hecho, en vez una dimensión, la cual se relacionaba directamente con las dimensiones calendario y provincia. Además de una nueva llamada demografía que iba a contener los campos de género y grupo de edad, que contenía anteriormente población. Ahora las tablas de casos y población no estaban conectadas entre sí, pero al estar conectadas a las mismas dimensiones que se quieren filtrar, se va realizar el cálculo correctamente. Viéndolo ahora con perspectiva, me parece bastante claro que población debe ser una tabla de hechos, pero cuando realicé el modelado me surgieron dudas y terminé eligiendo una opción incorrecta que me hizo perder bastante tiempo, ya que conllevó modificar mucho código en varios scripts y crear unos cuantos scripts nuevos.
+
+Por último, tras tener diseñado el modelo de datos, hice un diseño de unos prototipos de como quería que quedasen las hojas y los gráficos del cuadro de mando, que más tarde tendría que desarrollar en PowerBI.
+
+\section{Desarrollo}
+
+Tras terminar la fase de diseño, prosegí con la fase de desarrollo, la cual consistió en varias fases:
+
+\subsubsection{Preparación de Snowflake}
+
+Lo primero que se hice fue preparar manualmente el data warehouse, Snowflake, donde se iban a ingresar los datos, se crearon las tablas y se ingresaron los datos de forma manual, aunque el objetivo final es que se ingresen los datos que se actualizan frecuentemente de manera automática, decidí que esto se haría al final del proyecto, y que al principio se harían tareas más prioritarias, y me conformaré al principio con está ingesta manual para tener una base de la que partir
+
+\subsubsection{Configuración dbt}
+
+El siguiente paso fue la configuración de dbt, donde tuve que conectarlo con Snowflake para poder transformar los datos, también se conectó con mi repositorio de Github para llevar a cabo el control de versiones. A parte configuré un entorno de desarrollo donde realizar los cambios en el código, que venía acompañado de su propia rama de Github y que irá creando los distintos modelos en una base de datos nueva en Snowflake, diferenciada de la base de datos que contiene los datos crudos, sin transformaciones.
+
+\subsubsection{Transformaciones con dbt}
+
+Este fue otra de las partes más importantes del trabajo, donde invertí bastante tiempo a crear una veintena de scripts organizados en carpetas a distintos niveles, que realizan las innumerables transformaciones que se realizan para poder convertir los datos crudos que recibo en el modelado que he diseñado anteriormente, de forma que esté listo para realizar los cálculos requeridos por los KPIs de forma eficiente. Cada script realiza distintas transformaciones, pero están organizados en 3 capas:
+
+
+\begin{itemize}\tightlist
+    \item Staging: en ella se cargan los datos desde la fuente, que en mi caso es Snowflake y se renombran los campos a nombres comunes y entendibles. Ésta tiene varias carpetas en las que está organizada, una para cada tabla de hechos que son cargadas desde una fuente externa (casos, residencias, hospitales y población). 
+    A parte, cada una de estas carpetas tiene un fichero de configuración .yml para las fuentes de datos y otro para los scripts dónde se les puede documentar y testear.
+    
+    \item Temporal: en ella se realizan la mayoría de las transformaciones necesarias para obtener los modelos que hemos diseñado y por tanto tiene la mayoría del código. Al igual que la capa de Staging está organizada en varias carpetas, una para cada tabla de hechos y otra llamada máster para las dimensiones comunes que comparten varias tablas de hecho (calendario, demografía y provincias).
+    Al igual que la capa de staging tiene un fichero de configuración por cada carpeta dónde documentar y testear los scripts.
+    
+    \item Core: en ella es dónde está la versión final de los modelos, y coincide exactamente con lo diseñado en el modelado de datos, en sus scripts se hacen pequeñas modificaciones finales, como joins o renombrar los campos de las tablas, para que estén preparados para su explotación en la herramienta de reporting, PowerBI. Tiene la misma organización en carpetas que la capa anterior, en tablas de hecho, y la carpeta máster.
+    Como sucedía en las dos capas anteriores esta capa tiene también para documentar y testear los scripts de cada carpeta.
+    
+\end{itemize}
+
+\imagen{dbt}{Transformación modelo tmp-fact-poblacion.}
+
+\subsubsection{Testeo del código con dbt}
+
+Una vez terminado el código de las transformaciones, el siguiente paso es testear el código, tarea que se puede con el propio dbt, con los ficheros de configuración comentados en el apartado anterior, con un comando dbt test podemos correr los más de 40 tests que se he preparado, para asegurarme que las transformaciones se han hecho como esperaba y no hay ningún error. Los test más utilizados han sido comprobar que un campo no tenga ningún valor null o que la clave primaria de una tabla no se repita.
+
+\subsubsection{Documentación del código con dbt}
+
+Después del testeo y tener seguro que el código funciona bien, lo que hice fue documentar el código, al igual que con el testeo. Está tarea fue facilitada también por los ficheros de configuración .yml, dónde podemos poner descripciones en cada modelo, y en cada campo del modelo que queramos, con el comando dbt docs generate se forma una documentación, que aparte de contener las descripciones incluidas en el fichero de documentación, contiene el código dbt de cada modelo y su equivalencia en SQL puro. También contiene las dependencias de cada modelo con el resto, y varios gráficos DAG (Grafo Acíclico Dirigido), uno por cada modelo ,mostrando sus dependencias y otro general, para todo el proyecto.
+
+\imagen{c_dbt}{Gráfico DAG de fact-residencias.}
+
+\subsubsection{Creación del cuadro de mando en PowerBI}
+
+Tras tener todas las transformaciones listas, lo siguiente fue conectar PowerBI a Snowflake para poder acceder a los modelos transformados, una vez conectados hay que relacionarlos entre sí, indicar la cardinalidad y la dirección de filtrado entre ellos.
+
+Una vez tengo todos los modelos conectados en un único modelo, procedo a crear los gráficos, filtros y paneles, según lo tengo diseñado en el prototipo. Durante esta fase encuentro un comportamiento inesperado con algún KPI, el cual describo en detalle en la fase de diseño.
+
+Una vez terminado, subo el cuadro de mandos a la nube para que pueda ser compartido mediante un enlace y ser accedido por el público.
+
+\imagen{pbi}{Información general del cuadro de mandos.}
+
+\subsubsection{Automatización de la extracción y carga de datos}
+
+Los datos abiertos que he utilizado se encuentran disponibles para su descarga a través de un url en las páginas públicas de distintas instituciones del estado en forma de .csv, estos son los que se actualizan frecuentemente y los que nos va a interesar tener actualizados, al contrario que otros como la población o las provincias, que o no cambian, o se actualizan cada año.
+
+Para automatizar la extracción y carga de estos datos en principio  pensé en utilizar una herramienta que pudiera extraer los datos desde la url de descarga y cargarla en Snowflake, pero después de hacer una búsqueda exhaustiva no encontré ninguna herramienta que fuera capaz de hacer esto, ya que no tenían ningún conector (en muchos casos entre más de sus 200 conectores disponibles) preparado para extraer datos desde una url, cosa que me pareció extraña, pero entendible ya que normalmente en una arquitectura de datos, los datos se extraen de bases de datos OLTP, servicios de almacenamientos de objetos (como Amazon S3 de Amazon Web Services), CRMs, ficheros locales, SAP, aplicaciones como LinkedIn, Twitter, Instagram, etc., pero no me imagino a muchas empresas cargando sus datos desde una url.
+
+Como no iba a ser posible hacerlo de la manera que había pensado, lo que se me ocurrió es que primero, desde un script programado en Python iba a extraer los archivos desde la url y llevarlos a un Data Lake montado en Amazon s3, que se ejecutase de forma diaria, y de esa manera iba a almacenar en Amazon s3 los datos actualizados. Luego con una herramienta como Fivetran iba a extraer los datos de Amazon s3 y cargarlos en las tablas de Snowflakes de datos crudos correspondientes. Para ello tuve que configurar Amazon s3 para dar un acceso a Fivetran y que pudiera acceder a los datos, creando un IAM, que es un servicio web que ayuda a controlar de forma segura el acceso a los recursos de AWS. Para poder llevarlo a cabo, cree una política y un rol exclusivo para Fivetran, por último, tuve que configurar en Fivetran el acceso al S3 que acaba de crear y también el acceso a Snowflake para que pudiese cargar los datos. Fivetran se configuró para que realizase este proceso cada 24 horas.
+
+Este proceso se pudo completar sin problema para los datos de los casos, pero presentó problemas para las tablas de hospitales y residencias. Para los casos no hubo ningún problema ya que el url desde donde se descargaba el .csv era siempre el mismo. Para residencias había inconvenientes ya que el nombre cambiaba, e incluía la fecha de la última actualización del archivo. Pero se pudo modificar el script de Python para que incluyera en la url la fecha actual, y que en el caso de que no pudiera cargar el archivo porque en esa fecha no se había actualizado, tampoco lo hiciese en Amazon s3. El mayor problema vino con los datos de residencias, ya que la url cambiaba cada vez que se actualizaba, con un número aleatorio del que no se puede identificar ningún patrón, por lo que no podía saber cuál sería la url de descarga del archivo cuando lo actualizasen. Por tanto, no podía automatizar su extracción, e intenté contactar con el IMSERSO, para ver si podían decirme algo acerca del nombre del archivo que se usa en la url, pero no tuve respuesta. De este modo,  los datos de las residencias se quedaron sin extracción automática y se tenían que extraer y cargar en Amazon S3 de forma manual, para que Fivetran pudiese hacer la carga automática en Snowflake. Además, la ejecución de este script de Phyton está tambien automatizado, gracias a los servicios de Google Cloud, que hemos descrito en el apartado de técnicas y herramientas.

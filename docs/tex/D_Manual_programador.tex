@@ -1,0 +1,85 @@
+\apendice{Documentación técnica de programación}
+
+\section{Introducción}
+En este anexo se explicará la estructura y organización del proyecto, junto a la documentación necesaria para poder acceder al proyecto desde el punto de vista de un desarrollador de este.
+\section{Estructura de directorios}
+Dentro del repositorio, accesible en este \href{https://github.com/JoseDanielBallester/Modern-Data-Stack-para-analizar-la-situaci-n-epidemeologica-}{enlace}, encontramos los siguientes ficheros:
+\begin{itemize}
+    \item \texttt{/:} contiene el fichero README.
+    \item \texttt{/docs/:} contiene la documentación del proyecto: la memoria y los anexos, con sus complementos e imágenes, además de un enlace a la documentación de dbt.
+    \item \texttt{/python/:} contiene todo lo necesario para que funcione el script encargado de extraer los csv de las fuentes oficiales .
+    \item \texttt{/snowflake/:} fichero que contiene el script que va a configurar la data warehouse para su correcto funcionamiento y automatización de carga.
+    \item \texttt{/dbt/:}  fichero que contiene todos los archivos necesarios para realizar las transformaciones.
+    \item \texttt{/dbt/models/:} fichero que contiene los scripts y ficheros de configuración de los distintos modelos.
+    \item \texttt{/dbt/macros/:} es el fichero que contiene las funciones que se utilizan en los modelos.
+    \item \texttt{/dbt/seed/:} es el fichero que contiene archivos .csv desde los cuales se crean alguno de los modelos.
+    \item \texttt{/powerbi/:} fichero que contiene el archivo .pbix con el cuadro de mandos.    
+    \item \texttt{/accesos/:} fichero que contiene los accesos online a las plataformas donde está desplegado y desarrollado el proyecto.
+\end{itemize}
+\section{Manual del programador}
+Se indicarán los pasos que debe seguir un desarrollador que quiera mejorar las funcionalidades del proyecto.
+
+Una de las grandes ventajas del Modern Data Stack es que elimina todo el proceso de instalación, ya que sus distintos componentes se encuentran en la nube. Por tanto, solo habrá que registrarse y obtener acceso para poder participar en el desarrollo del proyecto.
+
+Para hacer más ágil este proceso al tribunal, en la carpeta /accesos/ se proporciona cuentas con el acceso y los permisos ya concedidos, y con todo lo necesario para acceder a ellas.
+
+\subsection{Acceso a Google Cloud}
+Para acceder a Google cloud hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Tener o crear una cuenta de gmail.
+    \item Solicitar a josedanielballester@gmail.com acceso desde ese gmail y esperar a recibir los permisos mediante un mensaje a ese correo.
+    \item Tener o crear una cuenta en Google Cloud asociada al gmail mencionado anteriormente.
+\end{itemize}
+Una vez cumplas con los requisitos, será suficiente con acceder al siguiente \href{https://console.cloud.google.com/home/dashboard?authuser=1&project=confident-trail-355019}{enlace}.
+
+\subsection{Acceso a Amazon S3}
+Para acceder al Amazon S3 hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Solicitar a josedanielballester@gmail.com acceso y esperar a recibir respuesta con la información de la cuenta: ID, usuario y contraseña provisional, la cual se te mandara cambiar la primera vez que accedas.
+\end{itemize}
+Una vez cumplas con los requisitos, será suficiente entrar con la opción de usuario de IAM al siguiente \href{https://s3.console.aws.amazon.com/s3/buckets/covidmoderndatastack?region=eu-west-3&tab=objects#}{enlace}.
+\subsection{Acceso a Fivetran}
+Para acceder a Fivetran hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Tener o crear una cuenta en Fivetran.
+    \item Solicitar a josedanielballester@gmail.com acceso y esperar a recibir los permisos mendiante un mensaje a ese correo.
+\end{itemize}
+Una vez cumplas con los requisitos, será suficiente con acceder al siguiente \href{https://fivetran.com/account}{enlace}.
+\subsection{Acceso a Snowflake}
+Para acceder a Snowflake hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Solicitar a josedanielballester@gmail.com acceso desde ese gmail y esperar a recibir respuesta con la información de la cuenta: url, servidor, warehause, usuario y contraseña.
+\end{itemize}
+Una vez cumplas con los requisitos, será suficiente con acceder al siguiente \href{https://app.snowflake.com/switzerland-north.azure/sh96129/data/databases}{enlace}.
+\subsection{Acceso a dbt}
+Para acceder al Google cloud hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Solicitar a josedanielballester@gmail.com acceso desde ese gmail y esperar a recibir los permisos mediante un mensaje a ese correo.
+    \item Tener o crear una cuenta en dbt.
+\end{itemize}
+En este caso, de momento no va a ser posible dar acceso a nuevas cuentas a dbt, ya que solo es gratuita con la condición de ser solo un desarrollador, por tanto, habría que acceder con mi cuenta o pagar 50\$ por desarrollador. Para el tribunal se le va a facilitar mi cuenta cuyos datos necesarios para el acceso se encuentran en la carpeta /accesos/.
+
+Una vez cumplas con los requisitos, será suficiente con acceder al siguiente \href{https://cloud.getdbt.com/login/}{enlace}.
+
+\subsection{Acceso a Power BI}
+Para acceder a Power BI hay que cumplir con una serie de requisitos:
+\begin{itemize}
+    \item Tener una cuenta de la UBU.
+    \item Solicitar a josedanielballester@gmail.com acceso desde esa cuenta y esperar a recibir los permisos.
+    \item Tener o crear una cuenta en PowerBI asociada a la cuenta mencionada anteriormente,  en la cual se ha solicitado un periodo de prueba o comprado PowerBI Pro.
+\end{itemize}
+Una vez cumplas con los requisitos, será suficiente con acceder al siguiente \href{https://app.powerbi.com/groups/a6ea5768-7f17-4ad1-a227-d103fc7c722c/list?refreshAccessToken=true}{enlace}.
+
+En el caso de PowerBI todavía no se ha dado acceso al tribunal, a falta de saber a qué cuenta de la UBU darle acceso.
+
+\section{Compilación, instalación y ejecución del proyecto}
+
+Como hemos mencionado en el anterior apartado, gracias a este nuevo paradigma no hay que instalar nada, y además el proceso de compilación y ejecución se realiza de forma automática diariamente, estos procesos se pueden modificar y observar mediante los enlaces facilitados en la sección anterior. 
+
+Lo único que podría tener sentido descargarse es la aplicación de Power BI desktop, ya que, aunque no es necesario, puede ser más cómodo para desarrollar la parte del cuadro de mandos, la cual se puede descargar desde el siguiente \href{https://powerbi.microsoft.com/es-es/downloads/}{enlace}. En tal caso simplemente habría que descargar el cuadro de mandos desde la nube, lo cual podemos hacer desde el enlace de PowerBI facilitado en el apartado anterior, y una vez queramos guardar nuestros cambios en la nube, bastará con publicar el cuadro de mandos en el grupo de trabajo desde el cual lo hemos descargado.
+
+En el repositorio se puede acceder también al código y al cuadro de mandos por si se quiere implementar desde cero, pero no es la idea que se tiene para continuar con este proyecto, ya que se pierden las ventajas que tiene el Modern Data Stack.
+
+\section{Pruebas del sistema}
+
+Para verificar el correcto funcionamiento de los varios módulos del proyecto, Google Cloud y Fivetran, nos enviarán un correo electrónico en caso de que haya fallado cualquier parte del proceso de extracción o carga. También, se han implementado en dbt más de 200 test para comprobar que el código realiza las transformaciones que se espera, y además recibe los datos como espera recibirlos. De esta parte tampoco tenemos que preocuparnos, ya que con la ejecución automática diaria de las transformaciones también está programado que se ejecuten todos los test, por lo que basta con que vayamos al apartado de Jobs de dbt cloud, y comprobemos que en las actualizaciones diarias no hay ningún error.

@@ -1,0 +1,91 @@
+\capitulo{4}{Técnicas y herramientas}
+
+Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. 
+
+\section{Gestión del proyecto}
+\subsection{Scrum}
+\cite{Scrum} Es un proceso empleado en los proyectos para el desarrollo ágil. Consiste en la realización de entregas incompletas del proyecto mediante \emph{sprints}, con la finalidad de acelerar el desarrollo de la entrega final del proyecto. 
+
+De esta manera las entregas parciales serán comprobadas y se irán desarrollando dentro del plazo fijado. 
+\subsection{GitHub}
+\cite{GitHub} Es un servicio  consistente en una nube que almacena un sistema de control de versiones (VCS) reconocido como Git. Por tanto, ofrece todas las funciones de Git, tales como documentación, revisión de código, wiki, gestión de tareas, etc.
+
+\subsection{Github Desktop}
+\cite{GitHub_Desktop} Es una aplicación que permite la interacción con GitHub a través de una interfaz gráfica que sustituye su uso mediante línea de comandos o de buscadores web.
+
+Esta aplicación facilita la actualización de los cambios que se van produciendo en el proyecto en el repositorio de GitHub.
+
+\subsection{ZenHub}
+\cite{ZenHub} Es una plataforma de gestión de proyectos que permite su visualización, la organización de sprints y las herramientas para la elaboración de informes. Para ello ofrece un tablero canvas que equivale un issue de GitHub. 
+Nos permite asignar a cada tarea una estimación mediante story points, priorizarla según la posición en la lista, asignar un responsable y a que sprint pertence.
+
+\section{Herramientas}
+\subsection{\emph{Microsoft Power BI}}
+\cite{MPBI} Es una herramienta que posibilita la conexión a distintas fuentes de datos locales o en la nube. De forma que se puede ajustar la información fácilmente, permitiendo producir tableros de control en tiempo real, e informes que incluyen la información óptima para la mejora del desarrollo de los resultados.
+	
+Así, \emph{Microsoft Power BI} permite unir diferentes fuentes de datos, modelizar y analizar datos para después, presentarlos a través de paneles e informes; y que así puedan ser consultados de una manera fácil, atractiva e intuitiva.
+	
+Por ello, es una herramienta usada para la fase de análisis y creación de paneles e informes, que permite realizar diversos gráficos que ayudan a visualizar los datos y sacar insights de forma cómoda y flexible gracias a la posibilidad de aplicar filtros dinámicos. 
+
+\subsection{\emph{Snowflake}}
+\cite{Snowflake} Es un data warehouse analítico en la nube que utiliza un repositorio de datos centralizado para datos persistentes, accesible desde todos los nodos del data warehouse, y que cuando va a procesar las consultas cada cluster almacena una porción de los datos localmente par procesarlos en pararelo.
+
+La arquitectura de Snowflake tiene 3 capas:
+
+\begin{itemize}
+	\item Database storage: en esta capa están los datos, una vez están en la nube, Snowflake los reorganiza en su propio formato para mejorar el rendimiento.
+	\item Query processing: esta capa reliza las consultas mediante almacenes virtuales, cada uno de ellos es un cluster de varios nodos que trabajan en parelelo.
+	\item Cloud services: son varios servicios que coordinan las actividades de Snowflake.
+\end{itemize}
+\imagen{snowflake}{Arquitectura de Snowflake.}
+
+\subsection{dbt}
+\cite{dbt} Es una herramienta de línea de comandos que permite desarrollar colaborativamente código de analítica. Es la herramienta que se encarga de las trasformaciones, la T del ELT, siguiendo las mejores prácticas de la ingeniería del software como la modularidad, portabilidad, la integración y distribución continua, la documentación, el control de versiones, y el testeo de cada modelo, permitiendo construir data pipelines robustos.
+
+En su flujo de trabajo para las transformaciones se generan automáticamente grafos de dependencia y su ejecución se puede programar y automatizar en su entorno en la nube.
+
+Dbt depende de SQL para transformar los datos, no le queda más remedio ya que, al estar transformando los datos directamente en la data warehouse en la nube, está delegando todo el trabajo pesado en su motor. Aun así, dbt agrega funcionalidad de código como por ejemplo bucles, que no hay en SQL, gracias al template jinja, lo que permite escribir código más eficiente.
+
+\subsection{\emph{Fivetran}}
+\cite{Fivetran} Es una herramienta que permite a las compañías extraer datos de varias fuentes, y cargarlas en uno distino, normalemnte una data warehouse en la nube. 
+
+Estas tareas de integración están automatizadas y usan conectores de datos preconstruidos que hay que configurar para que se conecten a las fuentes y el destino de los datos.
+
+\subsection{\emph{Amazon S3}}
+\cite{Amazon} Conocido también como \emph{Amazon Simple Storage Service} es un servicio que ofrece el almacenamiento de elementos a partir de una interfaz de servicio web.
+
+Se puede almacenar cualquier tipo de objeto, por lo que se le puede dar varios usos, pero en este caso será usado como un data lake.
+
+\subsection{\emph{Python}}
+\cite{Python} Es un lenguaje de alto nivel de programación que permite el desarrollo de cualquier tipo de aplicación.
+
+Lo que permite diferenciar este lenguaje de otros es que se considera un lenguaje interpretado, de forma que para la ejecución de las aplicaciones no se efectúa la compilación, sino que se ejecutan mediante un programa interpretador.
+
+\subsubsection{Os}
+\cite{Os} Es una biblioteca de Python que proporciona distintas funcionalidades sujetas al Sistema operativo. 
+
+Entre estas funcionalidades se incluyen: la creación de carpetas, el registro de contenidos de las carpetas, entre otras.
+
+\subsubsection{Requests}
+\cite{requests} Es una biblioteca de Python que se encarga de facilitar a los usuarios las solicitudes HTTP.
+
+\subsubsection{Boto3}
+\cite{Boto3} Es una biblioteca de Python que proporciona la agregación de servicios AWS, de manera que facilita al usuario la creación, el uso y la configuración de los servicios.
+
+\subsection{Google cloud} \cite{google_cloud} Es un espacio virtual por el que se puede realizar una serie de tareas que antes requerían de hardware o software y que ahora usan la nube de Google como única forma de acceso, almacenamiento y gestión de datos.
+
+\subsubsection{Cloud functions} \cite{cloud_functions} Es un servicio que sirve para crear aplicaciones sin servidores dentro de Google Cloud, dando respuesta a la demanda de eventos que puedan ocurrir en cualquier sitio. Lo positivo de este servicio es que abonarás solo por lo que uses, osea el tiempo que tu código se esté ejecutando, por lo tanto es buena opción para proyectos pequeños. En este caso lo hemos utilizado para realizar un script de Phyton \cite{Python} que extrae desde URLs de fuentes oficiales del estado, .csv con los datos que queremos actulizar diariamente de la pandemia, para llevarlos a Amazon S3, nuestro data lake, dónde reunimos los datos antes de cargarlos en nuestra data warehouse.
+    	
+\subsubsection{Cloud sheduler} \cite{cloud_scheduler} Es un programador de trabajos cron administrado. Permite programar practiamente cualquier trabajo, desde trabajos por lotes y de macrodatos hasta operaciones de infraestructura de nube y mucho más. Es el servicio que usamos para que se ejecute nuestro scripts de phyton de forma diaría.
+    	
+\subsubsection{Pub|sub} \cite{pub/sub} Este servicio permite que otros servicios se comuniquen de forma asíncrona, se usa para canalizaciones de integración de datos y estadísticas de transmisión a fin de transferir y distribuir datos. Es igual de efectivo que un middleware orientado a la mensajería para la integración de servicio o como una cola a fin de paralelizar tareas. Lo usamos para que se pueda comunicar Cloud Scheduler con el script de python programado en Cloud functions.
+
+\section{Documentación}
+\subsection{LaTeX}
+LaTeX \cite{Latex} es un sistema de elaboración de textos determinado para la creación de documentos escritos compuestos por una elevada condición tipográfica.
+
+\subsection{Overleaf}
+Overleaf \cite{Overleaf} es un editor colaborador con LaTeX constituido en la nube que permite escribir, editar y publicar documentos científicos, facilitando su uso sin necesidad de instalaciones y permitiendo la cooperación múltiple en tiempo real.
+
+\subsection{Zotero}
+Zotero \cite{Zotero} es un programa de \emph{software} libre encargado de gestionar, tanto las referencias bibliográficas, como las citas bibliográficas, de forma que permite fácilmente la recuperación y organización de las referencias.

@@ -1,0 +1,40 @@
+\capitulo{6}{Trabajos relacionados}
+
+Este apartado es un estado del arte. Incluye un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+
+Al empezar con el TFG busqué trabajos relacionados con el mío para ver cómo estaba el estado del arte, pero como la mayoría de los trabajos de este tipo los hacen empresas con datos sensibles no pude encontrar apenas. Lo que sí encontré fueron TFGs de otras universidades públicos, los cuales me sirvieron para poder compararlos con lo que yo tenía intención de hacer.
+
+\section{Análisis y visualización de datos abiertos de 
+carácter informativo para el alumnado de la 
+Universidad de Valladolid}
+
+Se trata de un trabajo de fin de grado realizado por Nadia Pérez Faúndez en el año 2021 \cite{TFG1}.
+
+Su proyecto se centra en la disposición de datos abiertos con el fin de informar a los estudiantes universitarios a través de una aplicación. 
+
+Aunque el proceso de desarrollo no es el mismo que el planteado en este proyecto, ya que usa la arquitectura tradicional con ETL, se puede ver como el objetivo final se asemeja, ya que también pretende la extracción de datos fiables de fuentes oficiales, en este caso de distintas universidades públicas de Castilla y León, con la finalidad de proporcionar la visualización de la información obtenida facilitando al usuario el acceso e interacción con los datos.
+
+
+\section{Aplicación de herramientas de Business Intelligence en datos del entorno de Salud}
+Se trata de un trabajo de fin de grado realizado por Uxue Ayechu Abendaño en el año 2017 \cite{TFG2}.
+
+Su proyecto se centra en la explotación de la información sanitaria de Navarra a través del Business Intelligence con el objetivo de ayudar a los sanitarios a partir de los datos obtendidos, con su visualización a través de la herramienta Tableau.
+
+En su caso, se usa la arquitectura tradicional con ETL, a diferencia de este proyecto, en cuyo proceso de desarrollo usa el Modern Data Stack, estando todo almacenado en la nube y usando los procesos ELT.
+
+\section{Business Intelligence y el análisis predictivo: COVID 19}
+Se trata de un trabajo de fin de grado realizado por Javier López Navas en el año 2020 \cite{TFG3}.
+
+Su proyecto se centra en elaborar un estudio de Business Intelligence del Covid-19 a través del uso de la herramienta Power Bi de Microsoft, mediante la interpretación de datos. 
+
+En este caso se emplea la misma herramienta para la visualización de la información, aunque la principal diferencia es en el proceso de desarrollo, ya que en este proyecto se usa la arquitectura tradicional con ETL y en el proceso de desarrollo de este proyecto se usa el Modern Data Stack, estando todo almacenado en la nube y usando los procesos ELT.
+
+\section{Mejoras de mi proyecto con respecto a los analizados en este apartado}
+Gracias a utilizar este nuevo paradigma de arquitectura de datos, mi proyecto tiene unas ventajas que no tienen proyectos anteriores:
+\begin{itemize}
+    \item Mayor velocidad de procesamiento en los datos.
+    \item No necesitar instalaciones al usar servicios en la nube.
+    \item Implementar practicas de Ingeniería del sofware gracias a dbt como: modularidad, portabilidad, integación, distribución continua, documentación, control de versiones y testeo.
+    \item Actualización diaria automática de los datos en todas las fases de nuestra arquitectura, con su correspondiente testeo.
+    \item Gracias al enfoque ELT en lugar de ETL obtenemos menos latencia, mayor escalabilidad y menor procesamiento.
+\end{itemize}

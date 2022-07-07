@@ -1,0 +1,344 @@
+\apendice{Plan de Proyecto Software}
+
+\section{Introducción}
+
+Esta primera fase de planificación es muy importante para el proyecto, ya que se va a estimar el tiempo y dinero que va a costar llevarlo a cabo. Por lo tanto, en este apartado se va a explicar el desarrollo del proyecto, mediante una planificación temporal y un estudio de viabilidad.
+
+En la planificación temporal se prepara un calendario de tiempos, donde se estima cuanto se va a tardar en realizar cada una de las tareas del proyecto. 
+
+El estudio de viabilidad de divide en dos partes:
+
+\begin{itemize}
+    \item \textbf{Viabilidad económica}: aquí se va a realizar una estimación de los costes y beneficios que podrían suponer la realización del proyecto.
+    \item \textbf{Viabilidad legal}: se debe de tener en cuenta las leyes que afecten al proyecto, principalmente lo relacionado con licencias de uso y protección de datos.
+\end{itemize}
+\newpage
+\section{Planificación temporal}
+Antes de iniciar el proyecto, se decidió utilizar la metodología ágil, y realizar sprints mayoritariamente, y dentro de lo posible, de dos semanas. Al final de cada sprint se realizaba un análisis con el balance del cumplimiento de los objetivos marcados al inicio, y se proponían las tareas a realizar para el nuevo sprint.
+
+Se utilizó ZenHub para la gestión de proyectos. El tablero proporcionado por ZenHub facilitó visualmente la organización del proyecto, y ayudó con la estimación de tareas, ya que para ello ofrece la disponibilidad de story points. Además, a estos, se les asigno una estimación temporal, tal como se indica en la siguiente tabla:
+
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{ll}
+			\hline
+			Story points    & Estimación temporal \\ \hline
+			1               & 30min      \\
+			2               & 2h     \\
+			3               & 5h        \\
+			5               & 8h       \\
+			8               & 12h  \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\subsection{Problemas con Zenhub}
+
+En el mes de junio, se tuvo problemas con Zenhub. Por alguna razón se desincronizaron los datos de Zenhub con el repositorio, y no deja acceder al canvas original dónde está guardada toda la información temporal. Se contactó con soporte para ver si se podía dar alguna solución, pero hasta la fecha no ha sido posible solucionarlo.
+
+\imagen{Error Zenhub}{Error acceso canvas de Zenhub}
+
+Lo siguiente va a ser detallar los sprints realizados.
+
+\subsection{Sprint 0 - 02/03/2022-16/03/2022}
+Durante este sprint, que no aparece reflejado ni el repositorio del proyecto ni el gestor de tareas por ser previo a la creación de estos, se realizó con los tutores una planificación general del proyecto, y se profundizó en la idea y los objetivos del proyecto (ya se había realizado una reunión previa a este sprint, donde expuse la idea del proyecto). 
+\newpage
+\subsection{Sprint 1 - 16/03/2022-23/03/2022}
+Este primer sprint, tuvo la duración de una semana, ya que se dedicó principalmente a tareas de investigación de herramientas y su configuración. Estas tareas han sido: elegir el gestor de proyectos, elegir el gestor de tareas, configurar el repositorio del proyecto, elegir el gestor de referencias, elegir el editor de texto para la memoria y documentar el primer sprint.
+
+\imagen{Tareas Sprint 1}{Tareas Sprint 1.}
+
+En este sprint se ha realizado un trabajo estimado de 12 story points equivalente a 12 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Informarse y elegir gestor de proyectos}         &research      &2 \\ \hline 
+    \textbf{Informarse y elegir gestor de tareas}         &research      &2 \\ \hline
+    \textbf{crear y configurar repositorio}         &configuration      &2 \\ \hline 
+    \textbf{Informarse y elegir gestor de referencias}         &research      &2 \\ \hline 
+    \textbf{Informarse y elegir editor de texto para la memoria}         &research      &2 \\ \hline 
+    \textbf{Documentar el primer sprint}         &{documentation}      &2 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 1.}
+    \label{tab:my_label}
+\end{table}
+\newpage
+\subsection{Sprint 2 - 23/03/2022-06/04/2022}
+El segundo sprint, ya vuelve a ser de dos semanas, como será la tónica general del resto de sprints. Éste se ha dedicado a una formación básica en las principales herramientas que se va a usar en el TFG, Snowflake, dbt y PowerBI, y además, a hacer una primera versión básica de la arquitectura de datos que se va a construir para este TFG, utilizando las 3 herramientas principales antes mencionadas, la cual se ampliará en posteriores sprints.
+
+\imagen{sprint 2}{Tareas Sprint 2.}
+
+En este sprint se ha realizado un trabajo estimado de 28 story points equivalente a 37 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Documentarse y aprender a usar Snowflake}         &research      &8 \\ \hline 
+    \textbf{Documentarse y aprender a usar dbt}         &research      &5 \\ \hline
+    \textbf{Documentarse y aprender a usar PowerBI}         &research      &3 \\ \hline 
+    \textbf{Configurar la base de datos en Snowflake}         &configuration      &2 \\ \hline 
+    \textbf{Cargar los primeros datos en Snowflake}         &development      &2 \\ \hline 
+    \textbf{Configurar dbt para transformar los datos}         &configuration      &2 \\ \hline
+    \textbf{Transformar los datos con dbt}         &development      &2 \\ \hline 
+    \textbf{Configurar PowerBI y conectar con Snowflake}         &configuration      &2 \\ \hline 
+    \textbf{Crear la primera gráfica en PowerBI}         &development      &2 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 2.}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Sprint 3 - 06/04/2022-20/04/2022}
+El tercer sprint se ha dedicado a documentar el segundo sprint y a una formación avanzada en dbt, ya que va a ser una herramienta que va a tener una parte importante de desarrollo de código. Durante este sprint se tenía planteado avanzar más, pero debido a que estuve enfermo gran parte del sprint se tuvo que trasladar al siguiente.
+
+\imagen{sprint 3}{Tareas Sprint 3.}
+
+En este sprint se ha realizado un trabajo estimado de 10 story points equivalente a 14 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Documentar el anterior sprint}         &documentation      &2 \\ \hline 
+    \textbf{Cursos avanzados de dbt}         &research      &8 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 3.}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Sprint 4 - 20/04/2022-04/05/2022}
+En el cuarto sprint se ha documentado el tercer sprint, también se ha realizado el análisis y la extracción de los datos que se van a utilizar para los paneles. Dentro de este análisis se incluye el prototipado del front end del proyecto, que en este caso corresponde al cuadro de mandos en PowerBI, posteriormente se ha realizado el modelado de los datos. Por último, se ha empezado con la documentación de los conceptos teóricos del TFG.
+
+\imagen{sprint 4}{Tareas Sprint 4.}
+
+En este sprint se ha realizado un trabajo estimado de 26 story points equivalente a 38 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Documentar el tercer sprint}         &documentation      &2 \\ \hline 
+    \textbf{Realizar el modelo de datos}         &documentation      &8 \\ \hline
+    \textbf{Análisis y extracción de datos}         &documentation, research      &8 \\ \hline 
+    \textbf{Documentar conceptos teóricos}         &documentation      &8 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 4.}
+    \label{tab:my_label}
+\end{table}
+\subsection{Sprint 5 - 04/05/2022-18/05/2022}
+El quinto sprint se ha dedicado a documentar el sprint anterior, como es costumbre, en este caso el cuarto sprint, y también se ha realizado otras tareas de documentación, concretamente se ha documentado la introducción, los objetivos y las herramientas.
+
+Además, se ha empezado con el desarrollo del código del Backend, en este caso corresponde con snowflake y dbt, específicamente se han creado los modelos staging de los datos de los hospitales y las residencias. Para desarrollar estos modelos ha sido necesario anteriormente configurar y programar la carga de datos en Snowflake.
+
+\imagen{sprint 5}{Tareas Sprint 5.}
+
+En este sprint se ha realizado un trabajo estimado de 23 story points equivalente a 34 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Documentar el cuarto sprint}         &documentation      &2 \\ \hline 
+    \textbf{Documentar introducción}         &documentation      &5 \\ \hline
+    \textbf{Documentar objetivos}         &documentation      &3 \\ \hline 
+    \textbf{Documentar herramientas}         &documentation      &3 \\ \hline 
+    \textbf{Cargar datos de residencias en Snowflake} &configuration, development      &2 \\ \hline 
+    \textbf{Cargar datos de camas hospitalarias en Snowflake}         &configuration, development      &2 \\ \hline
+    \textbf{Programar modelo STG-Hospitales}         &development      &3 \\ \hline 
+    \textbf{Programar modelo STG-Residencias}         &development      &3 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 5.}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Sprint 6 - 18/05/2022-01/06/2022}
+En el sexto sprint se ha documentado el sprint anterior, el quinto sprint, y se ha seguido con el desarrollo del Backend. Se ha programado los staging de población, divididos en población histórica y población del año actual, y también se ha desarrollado el staging de provincias. Por último, se ha creado todo el código relativo al calendario, el cual se ha creado desde cero.
+
+\imagen{sprint 6}{Tareas Sprint 6.}
+
+En este sprint se ha realizado un trabajo estimado de 26 story points equivalente a 40 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Programar modelo STG-Población}         &development      &3 \\ \hline 
+    \textbf{Programar modelo Dim Calendario}         &development      &8 \\ \hline
+    \textbf{Documentar el quinto sprint}         &documentation      &2 \\ \hline 
+    \textbf{Programar modelo Fact-Casos}         &development      &5 \\ \hline 
+    \textbf{Programar modelo STG-Provincias}         &development      &3 \\ \hline 
+    \textbf{Programar modelo STG-Población-Actual}         &development      &5 \\ \hline
+\end{tabular}}
+    \caption{Tareas completadas del Sprint 6.}
+    \label{tab:my_label}
+\end{table}
+\newpage
+\subsection{Sprint 7 - 01/06/2022-15/06/2022}
+En este sprint se ha documentado el sexto sprint, se ha terminado de programar el Backend, leído documentación avanzada de PowerBI y empezado con el Frontend. Este sprint ha tenido mucha carga de trabajo en comparación con los anteriores, ya que se ha desarrollado una parte importante del proyecto, y además se tuvo que corregir bastante código realizado con anterioridad al haber encontrado un error en el modelado que hacía que el Frontend no funcionase bien.
+
+Lo primero que se hizo con respecto al desarrollo, fue programar las dimensiones de provincias y población, junto a las tablas de hecho de hospitales y residencias. Con ello, se daba por terminada la parte de Backend, y se pasó a la documentación de algunos conceptos avanzados sobre PowerBI que se iban a necesitar. Una vez terminado lo anterior, se empezó con el cuadro de mandos, primero se realizaron los gráficos de la página general y, posteriormente los gráficos de las 2 páginas relacionadas con los datos de la tabla casos. Mientras hacía uno de estos gráficos me di cuenta de que algo estaba fallando, ya que mostraba datos incorrectos. Así que, tras investigar, me di cuenta de que era un fallo de modelado, por lo que tuve que rehacer una buena parte del código de backend. Población cambió de ser una dimensión a una tabla de hechos, y tuve que crear el modelo de staging y el modelo final para la nueva tabla de demografía. Una vez se arregló esto, se pudo terminar con los gráficos de casos.
+
+\imagen{sprint 7}{Tareas Sprint 7.}
+
+En este sprint se ha realizado un trabajo estimado de 44 story points equivalente a 69 horas.
+
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{Tareas}     &\textbf{Tag}     & \textbf{Story points} \\ \hline
+    \textbf{Documentar sexto sprint}         &documentation      &2 \\ \hline 
+    \textbf{Documentación avanzada de PowerBI}         &research      &5 \\ \hline
+    \textbf{Programar modelo STG demografía}         &development      &3 \\ \hline 
+    \textbf{Programar dim demografía}         &development      &3 \\ \hline 
+    \textbf{Programar dim provincias} &development      &3 \\ \hline 
+    \textbf{Programar fact residencias}         &development      &5 \\ \hline
+    \textbf{Programar fact hospitales}         &development      &5 \\ \hline 
+    \textbf{Gráficos de las 2 hojas de casos en PowerBI}         &development      &8 \\ \hline
+    \textbf{Programar fact población}         &development      &5 \\ \hline 
+    \textbf{Gráficos de la hoja resumen en PowerBI}         &development      &5 \\ \hline
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 7.}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{Sprint 8 - 15/06/2022-06/07/2022}
+
+Este último sprint, ha sido el más largo, ya que, si hacíamos un sprint de dos semanas, tal y como se ha hecho hasta ahora en la mayoría de sprints, se iba a quedar una semana suelta. Por ello se decidió que este último sprint durase hasta la fecha de entrega, teniendo un total de tres semanas.
+
+En este sprint se ha documentado el sprint anterior y, además, se ha terminado de documentar todo el apartado A de los anexos y el plan de proyecto software. También se han documentado en este sprint las últimas partes de la memoria: los aspectos relevantes del desarrollo del proyecto y todos los apartados de los anexos. Además del plan de proyecto software mencionado anteriormente, se han documentado: los requisitos, el diseño, el manual del programador y el manual del usuario.
+
+En la parte del desarrollo se han realizado los gráficos de hospitales y residencias en PowerBI, se han creado claves subrogadas y se ha optimizado el código en dbt, además de crear unos tests para comprobar que siempre que se realicen transformaciones funcione todo correctamente. Por último, se ha desarrollado un script en phyton para la extracción de los datos de las fuentes oficiales, que necesitaremos en nuestras tablas de hechos y que se incluirá en el data lake.
+
+Finalmente, también se han tenido que configurar numerosas herramientas para lograr que la arquitectura actualizase los datos de forma automática y periódicamente. Estas herramientas han sido: Cloud scheduler para la automatización del script de phyton, Amazon S3 como data lake, Fivetran para cargar los datos del data lake en Snowflake automáticamente, dbt para que haga también automáticamente las transformaciones de los nuevos datos y PowerBI para que tome esos datos de forma periódica.
+
+
+\imagen{sprint 8}{Tareas Sprint 8.}
+
+En este sprint se ha realizado un trabajo estimado de 75 story points equivalente a 117 horas.
+\begin{table}[ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|l|c|c|}
+    \hline
+   \textbf{Documentar aspectos relevantes del desarrollo del proyecto}       &documentation      &5 \\ \hline 
+    \textbf{Crear test dbt}         &{configuration, development}     &3 \\ \hline
+    \textbf{Documentar conclusión}         &{documentation}      &3 \\ \hline 
+    \textbf{Documentar trabajos relacionados}         &{documentation}     &3 \\ \hline 
+    \textbf{Gráficos de hospitales}         &{development}     &8 \\ \hline 
+    \textbf{Gráficos de residencias}         &{development}      &8 \\ \hline 
+    \textbf{Documentar requisitos}         &{documentation}      &8 \\ \hline 
+    \textbf{Documentar plan de proyecto software}         &{documentation}      &5 \\ \hline 
+    \textbf{Documentar manual de usuario}         &{documentation}      &3 \\ \hline 
+    \textbf{Documentar manual de programador}         &{configuration, documentation}      &3 \\ \hline 
+    \textbf{Documentar diseño}         &{documentation}      &5 \\ \hline 
+    \textbf{Configurar cloud scheduler para automatizar el script de python}        &{configuration}      &2 \\ \hline
+    \textbf{Programar script python para la extracción con Google functions}        &{development}      &3 \\ \hline 
+    \textbf{Configurar Amazon S3}         &{configuration, development}      &2 \\ \hline 
+    \textbf{Optimizar código dbt}         &{development}      &5 \\ \hline 
+    \textbf{Crear claves subrogadas}         &{development}      &3 \\ \hline 
+    \textbf{Configurar Fivetran para cargar datos de S3 en Snowflake}         &{configuration, development}      &3 \\ \hline 
+     \textbf{Configurar dbt y powerBI para la actualización automática de los datos}        &{configuration}      &3 \\ \hline 
+    \end{tabular}}
+    \caption{Tareas completadas del Sprint 7.}
+    \label{tab:my_label}
+\end{table}
+
+
+
+\section{Estudio de viabilidad}
+
+\subsection{Viabilidad económica}
+
+En este apartado se van a calcular los costes que ha supuesto el proyecto, y los beneficios que se van a percibir del mismo.
+
+\subsubsection{Costes}
+
+Los costes se dividen en estas categorias:
+
+\begin{itemize}
+    \item \textbf{Costes de software}: todas las herramientas software del proyecto se han podido utilizar de manera gratuita, ya que o eran open, contaban con una versión gratuita con algunas funciones limitadas o te daban una prueba gratuita para poder usar la herramienta durante un tiempo determinado.
+    
+    Por tanto, se concluye que no ha habido ningún coste en este apartado.
+    
+    \item \textbf{Costes de hardware}: el hardware utilizado para la realización del proyecto ha sido un ordenador portátil de 950€, se considera como tiempo de amortización 5 años, y como ha sido utilizado durante 4 meses y medio para el desarrollo del proyecto, el coste es el siguiente:
+
+    
+    \begin{equation}
+    \frac{950}{5} * \frac{4,5}{12} = 71,25
+    \end{equation}
+    Coste de hardware: 71,25€.
+    \item \textbf{Costes de personal}: este gasto se calculará teniendo en cuenta que lo ha desarrollado un analytics engineer junior. Se estima que el proyecto ha conllevado unas 450 horas en total, repartidas durante cuatro meses y medio. Esto nos daría una media aproximada de 25 horas semanales, ya que dependiendo de la semana ha habido más o menos carga de trabajo. El salario bruto de este empleado supondría 1900€ a jornada completa, así que vamos a calcular lo que supone en nuestro caso:
+    \begin{equation}
+    1900 * \frac{25}{40} = 1187,5
+    \end{equation}
+    Pero estos 1187,5€ brutos del salario del trabajador no es todo lo que cuesta el trabajador, hay que pagar una serie de impuestos a la seguridad social\cite{cotizar} , que son: 23,6 \% de contingencias comunes, 5,5\% de pago por prestación de desempleo, 3,5\% de IT/MS, 0.6\% de formación profesional y 0,2\% de FOGASA.
+    
+    \imagen{imp}{Contingencias de seguridad social y recaudación conjunta.}
+    
+    Por tanto, el coste total del trabajador por mes sería el siguiente: 
+    \begin{equation}
+    1187,5*(1+0,236+0,055+0,006+0,002)= 1542,56 
+    \end{equation}
+    
+    Para terminar el cálculo del personal, ahora que tenemos el coste mensual, solo tenemos que multiplicarlo por los 4 meses y medio de duración del proyecto, y tenemos los 6941,53€ del coste de personal.
+
+    
+    \item \textbf{Otros costes}: aquí se añade el gasto mensual de internet,  cuesta 40€ al mes, por tanto el gasto total de los cuatro meses y medio  es de 180€.
+    
+    \item \textbf{Coste total}: La suma de todos los costes es:
+    
+    \begin{table}[H]
+    	\begin{center}
+    		\begin{tabular}{ll}
+    			\hline
+    			Concepto        & Coste € \\ \hline
+    			Software        & 0      \\
+    			Hardware        & 71,25    \\
+    			Personal        & 6941,53        \\
+    			Otros          & 180       \\\hline
+    		    Total           & 7192,78  
+    		\end{tabular}
+    	\end{center}
+    \end{table}
+\end{itemize}
+\subsubsection{Beneficios}
+Al ser un proyecto educativo que se va a publicar de manera gratuita, no se espera recibir ningún beneficio.
+\subsection{Viabilidad legal}
+Esta sección está dedicada al análisis de las licencias que tienen las herramientas utilizadas.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+         \textbf{Herramienta/libreria}     &  \textbf{Versión}   &\textbf{Licencia} \\ \hline
+         {Snowflake}       & {6.21.0}  &{Commercial} \\ \hline
+         {dbt}       & {1.0}     &{Apache License 2.0} \\ \hline 
+         {GitHub}       & {3.2.11}    &{GNU} \\ \hline 
+         {PowerBI}       & {2.106.582.0}    &{Commercial} \\ \hline 
+         {os}       & {-}    &{PSFL} \\ \hline 
+         {request}       & {2.28.1}    &{Apache License 2.0} \\ \hline
+         {boto3}       & {1.24.22}    &{Apache License 2.0} \\ \hline 
+         {datetime}       & {4.5}    &{ZPL} \\ \hline 
+    \end{tabular}
+    \caption{Tabla de licencias}
+    \label{tab:my_label}
+\end{table}
+
+Las herramientas de Snowflake y PowerBI disponen de licencia comercial ya que ofrecen servicios de pago en la nube, pero esto no impide compartir el código/archivos, el resto de las licencias son de software libre. Por lo tanto, la licencia que va a tener nuestro código es open source, concretamente GPLv3, ya que se quiere prevenir que este código pueda dejar de ser libre en el futuro.
