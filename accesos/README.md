@@ -6,11 +6,11 @@ Para ver los requisitos acceder al apéndice E documentación de usuario, de los
 ## Acceso para desarrolladores:
 - [Enlace de acceso a Google Cloud](https://console.cloud.google.com/welcome?project=confident-trail-355019)
 
-...- [Enlace de acceso a Cloud Pub/Sub](https://console.cloud.google.com/cloudpubsub/topic/list?project=confident-trail-355019)
+  - [Enlace de acceso a Cloud Pub/Sub](https://console.cloud.google.com/cloudpubsub/topic/list?project=confident-trail-355019)
 
-...- [Enlace de acceso a Cloud Scheduler](https://console.cloud.google.com/cloudscheduler?project=confident-trail-355019)
+  - [Enlace de acceso a Cloud Scheduler](https://console.cloud.google.com/cloudscheduler?project=confident-trail-355019)
 
-...- [Enlace de acceso a Cloud Functions](https://console.cloud.google.com/functions/list?project=confident-trail-355019)
+  - [Enlace de acceso a Cloud Functions](https://console.cloud.google.com/functions/list?project=confident-trail-355019)
 
 - [Enlace de acceso a Amazon S3](https://s3.console.aws.amazon.com/s3/buckets/covidmoderndatastack?region=eu-west-3&tab=objects)
 
@@ -25,7 +25,7 @@ Para ver los requisitos acceder al apéndice E documentación de usuario, de los
 Para ver los requisitos acceder al apéndice D documentación técnica de programación, de los anexos.
 
 ## Credenciales para desarrolladores: 
--[Enlace de acceso a las credenciales para desarrolladores](https://universidaddeburgos-my.sharepoint.com/personal/jbd1001_alu_ubu_es/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjbd1001%5Falu%5Fubu%5Fes%2FDocuments%2Fcredenciales%2Etxt&parent=%2Fpersonal%2Fjbd1001%5Falu%5Fubu%5Fes%2FDocuments)
+- [Enlace de acceso a las credenciales para desarrolladores](https://universidaddeburgos-my.sharepoint.com/personal/jbd1001_alu_ubu_es/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjbd1001%5Falu%5Fubu%5Fes%2FDocuments%2Fcredenciales%2Etxt&parent=%2Fpersonal%2Fjbd1001%5Falu%5Fubu%5Fes%2FDocuments)
 
 Acceso disponible solo para un limitado grupo de personas.
 
